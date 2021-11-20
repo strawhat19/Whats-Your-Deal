@@ -1,17 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What's Your Deal?</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-    Hello
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    /> -->
+    <link rel="stylesheet" href="./css/styles.css" />
 
-    <!-- jQuery Core -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="./script.js"></script>
-</body>
+    <title>Stock API Data</title>
+    <link rel="icon" href="./img/Stock-Icon-Circle-Icon.svg" type="image/x-icon">
+  </head>
+  <body>
+    <div id="marquee"></div>
+    <div class="pageWrapper">
+      <h1>NASDAQ EXCHANGE</h1>
+      <div class="searchBarWrapper">
+        <input class="input-field" type="text" placeholder="Search" />
+        <button id="clickMe" class="searchButton">
+          Search
+          <svg
+            id="spinnerSVG"
+            class="spinnerSVG"
+            width="40"
+            height="39"
+            viewBox="0 0 40 39"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M39.5 19.5C39.5 29.9816 30.7816 38.5 20 38.5C9.21844 38.5 0.5 29.9816 0.5 19.5C0.5 9.01845 9.21844 0.5 20 0.5C30.7816 0.5 39.5 9.01845 39.5 19.5Z"
+              stroke="white"
+            />
+          </svg>
+        </button>
+      </div>
+      <!-- <div id="spinner"></div> -->
+      <div id="results"></div>
+      <!-- <div class="testing">
+        <svg
+          width="256"
+          height="256"
+          viewBox="0 0 256 256"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle class="spinThis" cx="128" cy="128" r="127.5" stroke="black" />
+        </svg>
+      </div> -->
+      <div class="outerMarquee">
+        <div class="newTesting" id="marqueeTest"></div>
+      </div>
+    </div>
+
+    <script src="./js/marquee.js"></script>
+    <script src="./js/index.js"></script>
+    <!-- <script src="./js/searchResults.js"></script> -->
+    <script src="./js/searchResults2.js"></script>
+  </body>
 </html>

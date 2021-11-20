@@ -1,0 +1,234 @@
+/* Montserrat */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --main: #de1c1c;
+}
+html {
+  font-family: "Montserrat";
+  font-size: 23px;
+  overflow-x: hidden;
+  background: var(--main);
+}
+.outerMarquee {
+  background: white;
+  position: fixed;
+  top: 0;
+  padding: 0.3em 0;
+}
+
+:focus-visible {
+  outline: none;
+}
+
+#marqueeTest {
+  display: flex;
+  flex-wrap: nowrap;
+  grid-gap: 1em;
+  background: white;
+  max-height: 1.5em;
+  align-items: center;
+  justify-content: center;
+}
+
+.stockElement {
+  text-align: center;
+  width: 177px;
+  font-size: 0.8em;
+}
+
+.marqueeAnim {
+  animation: marqueeMove 100s linear infinite;
+}
+
+@keyframes marqueeMove {
+  0% {
+    transform: translate(0%);
+  }
+  100% {
+    transform: translate(-50%);
+  }
+}
+
+/* Animation */
+/* .testing svg {
+  overflow: visible;
+}
+
+.testing svg circle {
+  stroke: white;
+  overflow: visible;
+  transform-origin: center;
+  stroke-dasharray: 350px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}*/
+
+/* .spinThis {
+  display: none;
+  animation: spinner 3s linear infinite;
+} */
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+    stroke-width: 3px;
+    stroke-dasharray: 20px;
+    stroke-dashoffset: -1000%;
+  }
+  100% {
+    transform: rotate(360deg);
+    stroke-width: 10px;
+    stroke-dasharray: 50px;
+    stroke-dashoffset: 2000%;
+  }
+}
+
+.spinnerSVG {
+  stroke-dasharray: 5px;
+  transform-origin: center;
+  overflow: visible;
+  margin-left: 1em;
+  max-width: 20px;
+  display: none;
+}
+
+.spinnerSVG path {
+  stroke: white;
+  transform: scale(1.5);
+  animation: spinner 2s linear infinite;
+  transform-origin: center;
+}
+
+.show {
+  display: block;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.loader {
+  border: 16px solid #fff; /* Light grey */
+  border-top: 16px solid #000; /* Blue */
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  animation: spinner 0.5s linear infinite;
+}
+
+/* Start Main Content Styling */
+.pageWrapper {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  /* background-color: gray; */
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.searchBarWrapper {
+  display: flex;
+  width: 50%;
+  height: 60px;
+  border: black;
+  /* border-radius: 6px; */
+}
+input.input-field {
+  display: flex;
+  width: 75%;
+  border: 6px solid black;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  /* border-radius: 15px; */
+  font-family: "Montserrat";
+  font-size: 23px;
+  padding-left: 0.4em;
+}
+button {
+  display: flex;
+  width: 37%;
+  /* border-radius: 15px; */
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  color: white;
+  background-color: black;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+  font-size: 19px;
+  font-family: "Montserrat";
+  font-size: 23px;
+}
+mark{
+  background: #de1c1c;
+  color: #fff;
+}
+#results {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+a {
+  text-decoration: none;
+  color: white;
+  transition: 150ms ease-in-out;
+}
+a:hover {
+  color: #de1c1c;
+  text-decoration: underline;
+}
+.companyRow {
+  display: flex;
+  height: 38px;
+  width: 100%;
+  border-bottom: 1px solid #de1c1c;
+  justify-content: center;
+  align-items: center;
+}
+.companyRow a {
+  display: flex;
+  justify-content: center;
+  grid-gap: .5em;
+  align-items: center;
+}
+.companyIcon {
+  max-height: 30px;
+  width: auto;
+  margin-right: 10px;
+}
+.companySymbol {
+  color: #b5b5b5;
+  font-size: 0.8em;
+}
+.positive {
+  color: green;
+  font-size: 0.8em;
+}
+.negative {
+  color: #de1c1c;
+  font-size: 0.8em;
+}
+#results {
+  background: black;
+  width: fit-content;
+  box-shadow: black;
+  box-shadow: 6px 5px 0px 0px rgb(21 17 17 / 30%);
+  border-radius: 22px;
+  width: 50%;
+}
+.companyRow:last-child{
+  border: none;
+}

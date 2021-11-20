@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../sass/company.css" />
+
+    <title>Company</title>
+    <link rel="icon" href="../img/Stock-Icon-Circle-Icon.svg" type="image/x-icon">
+  </head>
+  <body>
+    <div class="pageWrapper">
+
+      <a href="../"><h1 class="nasdaq">NASDAQ EXCHANGE</h1></a>
+      <div class="companyDash" id="companyDash">
+        <div class="companyData"></div>
+        <div class="companyChart">
+          <div class="chartTitle">Company Growth over the past 15 Business Days</div>
+          <svg
+            id="spinnerSVG"
+            class="spinnerSVG"
+            width="40"
+            height="39"
+            viewBox="0 0 40 39"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M39.5 19.5C39.5 29.9816 30.7816 38.5 20 38.5C9.21844 38.5 0.5 29.9816 0.5 19.5C0.5 9.01845 9.21844 0.5 20 0.5C30.7816 0.5 39.5 9.01845 39.5 19.5Z"
+              stroke="white"
+            />
+          </svg>
+          <canvas class="lineChart" id="lineChart"></canvas>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Custom Scripts -->
+    <!-- <script src="../js/marquee.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+    <script src="../js/company.js"></script>
+
+    <!-- End Body -->
+  </body>
+</html>
