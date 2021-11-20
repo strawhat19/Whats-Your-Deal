@@ -1,72 +1,26 @@
-// Declaring Constants
-const body = document.body;
-const spinner = document.getElementById(`spinnerSVG`);
+// window.addEventListener('DOMContentLoaded', (event) => {
+ // Declare constants-- touch marquee element
+const marqueeElement = document.getElementById(`marqueeTest`);
 
-// Div where we inject search results
-const results = document.getElementById(`results`);
+// Fetch with async function
+async function stockListFetch() {
+  const response = await fetch(
+    `https://financialmodelingprep.com/api/v3/available-traded/list?apikey=7e60778244bbb11a3e59192e565ed625`
+  );
+  let stocklist = await response.json();
+  // splice array for workable number
+  stocklist.splice(100);
 
-// Search Input
-const searchInput = document.querySelector(`.input-field`);
-
-// Click to make list pop up
-const searchButton = document.getElementById(`clickMe`);
-
-// For forcing whole object into array
-let profilesArray = [];
-let imagesArray = [];
-
-// When user presses 'Enter' Key while they are inside the Search
-searchInput.addEventListener(`keydown`, (event) => {
-  if (event.keyCode === 13) {
-    search();
-  }
-});
-
-// When the Search Input is empty, empty results
-searchInput.addEventListener(`input`,event => {
-  searchInput.value === `` ? results.innerHTML = `` : true;
-})
-
-// Main Search Function
-searchButton.addEventListener(`click`, (search = (searchTerm) => {
-  // Emptying the Results Div on search
-    results.innerHTML = ``;
-
-    // Instatiating search term
-    searchTerm = searchInput.value;
-
-    // Fetching Data URL
-    const url = `https:stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/search?query=${searchTerm}&limit=10&exchange=NASDAQ`;
-    
-    // Fetch
-      fetch(url)
-      .then((response) => {
-        // console.log(response);
-        if (response.status != 200) {
-          alert(`Fetch not successful`);
-          return;
-        }
-        // Show Spinner
-        spinner.classList.add(`show`);
-        return response.json();
-      })
-      
-      // Side Fetch
-      .then((data) => {
-        console.log(`Side Fetch Data is: `);
-        console.log(data);
-        // Remove Spinner
-        setTimeout(() => {
-          spinner.classList.remove(`show`);
-        }, 1000); // Opening For Each Loop
-        data.forEach((company, index, companyRow) => {
-          const profileURL = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/company/profile/${company.symbol}`;
-          fetch(profileURL)
+// for each company make a div add a class
+  stocklist.forEach((company, index, stockElement) => {
+    let profileURL = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/company/profile/${company.symbol}`;
+    fetch(profileURL)
             .then((newResponse) => newResponse.json())
             .then((profileData) => {
 
             // Reinitializing Profile Array
             profilesArray.push(profileData);
+            console.log(profilesArray)
             profilesArray.forEach((company, index) => {
 
               // Begin Profiles Array // Search Results Function
@@ -103,9 +57,13 @@ searchButton.addEventListener(`click`, (search = (searchTerm) => {
                 companyElement.setAttribute(`href`,`./html/company.html?symbol=${symbol}`);
                 companyElement.classList.add(`çompanyElement`);
                 companyElement.setAttribute(`ìd`, index + 1);
+                // companyElement.innerHTML = `
+                // <span class="companyName">${name}</span> 
+                // <span class="companySymbol">(${symbol})</span>
+                // <span class="companyChanges ${condition}">(${plus}${changes})</span>
+                // `;
                 companyElement.innerHTML = `
-                <span class="companyName">${name}</span> 
-                <span class="companySymbol">(${symbol})</span>
+                <span class="companySymbol">${symbol}</span>
                 <span class="companyChanges ${condition}">(${plus}${changes})</span>
                 `; // Injecting the Elements we Created into the Rows
                 companyRow.prepend(companyImage);
@@ -117,7 +75,24 @@ searchButton.addEventListener(`click`, (search = (searchTerm) => {
               });
 
               // Abstracted this code so it only appends rows on full word input
-              results.append(companyRow);
+              marqueeElement.append(companyRow);
+              // stockElement = document.createElement(`div`);
+              // stockElement.classList.add(`stockElement`);
+              // // add symbol with a price
+              // let companyElement = document.createElement(`a`);
+              // let companyImage = document.createElement(`img`); // Creating Image for Each Company
+              // // Setting the Attributes of the Company Image
+              // companyImage.setAttribute(`src`, company);
+              // companyImage.setAttribute(`class`, `companyIcon`);
+              // companyImage.setAttribute(`height`, `100px`);
+              // companyImage.setAttribute(`width`, `100px`);
+              // companyElement.setAttribute(`href`,`./html/company.html?symbol=${company.symbol}`);
+              // companyElement.classList.add(`companyElement`);
+              // companyElement.setAttribute(`ìd`, index + 1);
+              // stockElement.innerHTML = `${company.symbol} <span class="positive"> | ($${company.price})</span>`;
+              // marqueeElement.classList.add(`marqueeAnim`);
+              // companyElement.append(stockElement)
+              // marqueeElement.append(companyElement);
 
               // Image Fixing
               const images = document.querySelectorAll(`img`);
@@ -143,24 +118,10 @@ searchButton.addEventListener(`click`, (search = (searchTerm) => {
                 symbol.innerHTML = symbol.textContent.replace(filter,match => `<mark>${match}</mark>`);
               })
 
-            });
-        });
-      });
-  })
+          });
+  });
+}
 
-  // End Main Search Function
-);
+stockListFetch();
 
-// const checkInput = () => {
-//   const userInput = formInput.value;
-//   if (isNaN(userInput) === false) {
-//     // it's a number
-//     const userNumber = parseInt(userInput);
-//     console.log("number", userNumber);
-//     getDates();
-//   } else if (isNaN(userInput)) {
-//     // it's a string
-//     console.log("string", userInput);
-//     getStocks();
-//   }
-// }
+// });

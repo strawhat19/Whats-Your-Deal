@@ -56,25 +56,6 @@ html {
   }
 }
 
-/* Animation */
-/* .testing svg {
-  overflow: visible;
-}
-
-.testing svg circle {
-  stroke: white;
-  overflow: visible;
-  transform-origin: center;
-  stroke-dasharray: 350px;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}*/
-
-/* .spinThis {
-  display: none;
-  animation: spinner 3s linear infinite;
-} */
-
 @keyframes spinner {
   0% {
     transform: rotate(0deg);
@@ -152,7 +133,6 @@ input.input-field {
   border: 6px solid black;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
-  /* border-radius: 15px; */
   font-family: "Montserrat";
   font-size: 23px;
   padding-left: 0.4em;
@@ -160,7 +140,6 @@ input.input-field {
 button {
   display: flex;
   width: 37%;
-  /* border-radius: 15px; */
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   color: white;
@@ -181,6 +160,9 @@ mark{
   flex-direction: column;
   width: 50%;
 }
+.outerMarquee a {
+  color: #000 !important;
+}
 a {
   text-decoration: none;
   color: white;
@@ -189,6 +171,9 @@ a {
 a:hover {
   color: #de1c1c;
   text-decoration: underline;
+}
+.outerMarquee a:hover {
+  text-decoration: none !important;
 }
 .companyRow {
   display: flex;
@@ -231,4 +216,7 @@ a:hover {
 }
 .companyRow:last-child{
   border: none;
+}
+.outerMarquee .companyRow {
+  border-bottom: none !important;
 }

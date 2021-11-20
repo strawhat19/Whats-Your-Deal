@@ -2,6 +2,10 @@
   --main: #de1c1c;
 }
 
+.outerMarquee a {
+  color: #000 !important;
+}
+
 .companyDash {
   display: -webkit-box;
   display: -ms-flexbox;

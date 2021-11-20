@@ -2,7 +2,7 @@
 const body = document.body;
 const spinner = document.getElementById(`spinnerSVG`);
 
-// User input instead of AA
+// Div where we inject search results
 const results = document.getElementById(`results`);
 
 // Search Input
@@ -11,26 +11,37 @@ const searchInput = document.querySelector(`.input-field`);
 // Click to make list pop up
 const searchButton = document.getElementById(`clickMe`);
 
-//for forcing whole object into array
-let newDataArray = [];
-//comparing search to all search terms
-//add delay to fix double searches
+// For forcing whole object into array
+let profilesArray = [];
+let imagesArray = [];
 
-searchInput.addEventListener(`input`, (search = (searchTerm) => {
+// When user presses 'Enter' Key while they are inside the Search
+searchInput.addEventListener(`keydown`, (event) => {
+  if (event.keyCode === 13) {
+    search();
+  }
+});
+
+// When the Search Input is empty, empty results
+searchInput.addEventListener(`input`,event => {
+  searchInput.value === `` ? results.innerHTML = `` : true;
+})
+
+// Main Search Function
+searchButton.addEventListener(`click`, (search = (searchTerm) => {
+  // Emptying the Results Div on search
     results.innerHTML = ``;
-    searchTerm = searchInput.value;
-    const symbol = searchTerm;
 
-    // Fetching Data
-    const url = `https:stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/search?query=${symbol}&limit=10&exchange=NASDAQ`;
-    // let loader = document.createElement(`div`);
-    // loader.innerHTML = `<div class="spinner"></div>`;
-    // console.log(loader);
-    // document.getElementById("spinner").innerHTML = loader;
-    setTimeout(() => {
+    // Instatiating search term
+    searchTerm = searchInput.value;
+
+    // Fetching Data URL
+    const url = `https:stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/search?query=${searchTerm}&limit=10&exchange=NASDAQ`;
+    
+    // Fetch
       fetch(url)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         if (response.status != 200) {
           alert(`Fetch not successful`);
           return;
@@ -40,83 +51,98 @@ searchInput.addEventListener(`input`, (search = (searchTerm) => {
         return response.json();
       })
       
-      //sidefetch
+      // Side Fetch
       .then((data) => {
-        console.log(data);
         // Remove Spinner
         setTimeout(() => {
           spinner.classList.remove(`show`);
-        }, 1000);
+        }, 1000); // Opening For Each Loop
         data.forEach((company, index, companyRow) => {
-          const TestURL = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/company/profile/${company.symbol}`;
-          fetch(TestURL)
+          const profileURL = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/company/profile/${company.symbol}`;
+          fetch(profileURL)
             .then((newResponse) => newResponse.json())
-            .then((newData) => {
-            newDataArray.push(newData);
-             newDataArray.filter(company => {
-                // Using Reg Ex or a Regular Expression
-                const regex = new RegExp(`^${searchInput.value}`, `gi`);
-                return company.symbol.match(regex);
-             })
-            //  newDataArray = [...new Set(newDataArray)];
-            //  localStorage.setItem(`Companies`, JSON.stringify(newDataArray));
-             newDataArray.forEach((company, index) => {
-                // let name = company.profile.companyName;
-                // let image = company.profile.image;
-                // let changes = company.profile.changes;
-                // let symbol = company.symbol;
-                // Object Destructuring
-                let { companyName, image, changes } = company.profile;
-                let { symbol } = company;
-                let condition = ``;
+            .then((profileData) => {
+
+            // Reinitializing Profile Array
+            profilesArray.push(profileData);
+            profilesArray.forEach((company, index) => {
+
+              // Begin Profiles Array // Search Results Function
                 let plus = ``;
-                // changes >= 0 ? condition = `positive` : condition = `negative`;
+                let condition = ``;
+                let symbol = company.symbol;
+                let image = company.profile.image;
+                let changes = company.profile.changes.toFixed(2);
+                let name = company.profile.companyName;
+
+                // Filtering for Price Increase or Decrease
                 if (changes >= 0) {
                   condition = `positive`;
                   plus = `+`;
                  }  else {
                   condition = `negative`;
                 }
-                // if (`.companyChanges.positive`) {
-                //   const positiveCompanies = document.querySelectorAll(`.positive`)
-                //   console.log(positiveCompanies);
-                //   positiveCompanies.forEach(positiveCompany => {
-                //     positiveCompany.prepend(`+`);
-                //   })
-                // }
-                // let website = company.profile.website;
-                //company image(make element, give it src class and attributes for the class)
+               
+                // Creating Rows for Each Company
                 companyRow = document.createElement(`div`);
-                let companyImage = document.createElement(`img`);
+                let companyImage = document.createElement(`img`); // Creating Image for Each Company
+    
+                // Setting the Attributes of the Company Image
                 companyImage.setAttribute(`src`, image);
                 companyImage.setAttribute(`class`, `companyIcon`);
                 companyImage.setAttribute(`height`, `100px`);
                 companyImage.setAttribute(`width`, `100px`);
+
+                // Setting the Attributes of the Company Rows
                 companyRow.classList.add(`companyRow`);
+
+                // Creating a New Element to Contain Company Data
                 let companyElement = document.createElement(`a`);
-                companyElement.setAttribute(
-                  `href`,
-                  `./html/company.html?symbol=${symbol}`
-                );
-                //add name of company to element add symbol after add image before
-                //still need to add stock change red if down green otherwise
+                companyElement.setAttribute(`href`,`./html/company.html?symbol=${symbol}`);
                 companyElement.classList.add(`çompanyElement`);
                 companyElement.setAttribute(`ìd`, index + 1);
                 companyElement.innerHTML = `
-                <span class="companyName">${index} | ${companyName}</span> 
+                <span class="companyName">${name}</span> 
                 <span class="companySymbol">(${symbol})</span>
                 <span class="companyChanges ${condition}">(${plus}${changes})</span>
-                `;
+                `; // Injecting the Elements we Created into the Rows
                 companyRow.prepend(companyImage);
                 companyRow.append(companyElement);
+
+                // Returning the Company Row
                 return companyRow;
+                // End Search Results Function
               });
+
+              // Abstracted this code so it only appends rows on full word input
               results.append(companyRow);
-            });
+
+              // Image Fixing
+              const images = document.querySelectorAll(`img`);
+              images.forEach(image => {
+                image.addEventListener(`error`,event => {
+                  event.target.src=`../img/Stock-Icon-Circle-Icon.svg`;
+                })
+              })
+
+              // Highlighting Searched Text on Company Names
+              const companyNames = document.querySelectorAll(`.companyName`);
+              companyNames.forEach(name => {
+                let filteredCharacters = searchTerm.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+                let filter = new RegExp(`${filteredCharacters}`,`gi`);
+                name.innerHTML = name.textContent.replace(filter,match => `<mark>${match}</mark>`);
+              })
+
+              // Highlighting Searched Text on Company Symbols
+              const companySymbols = document.querySelectorAll(`.companySymbol`);
+              companySymbols.forEach(symbol => {
+                let filteredCharacters = searchTerm.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+                let filter = new RegExp(`${filteredCharacters}`,`gi`);
+                symbol.innerHTML = symbol.textContent.replace(filter,match => `<mark>${match}</mark>`);
+              })
+
+          });
         });
       });
-    },1000)
   })
 );
-
-searchButton.addEventListener(`click`, search);
