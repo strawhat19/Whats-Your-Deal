@@ -1,6 +1,6 @@
 console.log(`Hello`);
 
-fetch(`http://data.streetfoodapp.com/1.1/locations/washington/vijs`)
+fetch(`https://data.streetfoodapp.com/1.1/locations/washington/vijs`)
 .then(response => {
     return response.json();
 })
