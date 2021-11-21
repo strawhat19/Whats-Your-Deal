@@ -150,6 +150,7 @@ button {
   font-size: 19px;
   font-family: "Montserrat";
   font-size: 23px;
+  border: none;
 }
 mark{
   background: #de1c1c;

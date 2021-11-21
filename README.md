@@ -2,7 +2,10 @@
 
 [![License Badge: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-Practicing Asyncronous Fetching with Stocks API
+Practicing Asyncronous Fetching with Stocks API.
+
+![Screenshot of Application](./img/screenshot1cropt.jpg)
+![Screenshot of Application 2](./img/screenshot2.jpg)
 
 ## Table of Contents  
 * [Installation](#installation)  
@@ -23,7 +26,7 @@ Practicing Asyncronous Fetching with Stocks API
 #### Jest & NPM Tests were used to ensure quality on this Application.
 
 ## Contributors
-#### The Contributors of this Application: Rakib Ahmed, Jordan Avitan
+#### The Contributors of this Application: Rakib Ahmed, Darrell Carter, Alexander Davis, James Li
 
 ## Contributions
 #### To contribute to this application, you can: Fork it, Clone it, Branch it!
