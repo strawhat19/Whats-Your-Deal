@@ -78,40 +78,40 @@ text-decoration: none !important;
 }
 
 .companyRow {
-display: flex;
-height: 38px;
-width: 100%;
-border-bottom: 1px solid #de1c1c;
-justify-content: center;
-align-items: center;
+    display: flex;
+    height: 38px;
+    width: 100%;
+    // border-bottom: 1px solid #de1c1c;
+    justify-content: center;
+    align-items: center;
 }
 .companyRow a {
-display: flex;
-justify-content: center;
-grid-gap: .5em;
-align-items: center;
+    display: flex;
+    justify-content: center;
+    grid-gap: .5em;
+    align-items: center;
 }
 .companyIcon {
-max-height: 30px;
-width: auto;
-margin-right: 10px;
+    max-height: 30px;
+    width: auto;
+    margin-right: 10px;
 }
 .companySymbol {
-color: #b5b5b5;
-font-size: 0.8em;
+    color: #b5b5b5;
+    font-size: 0.8em;
 }
 .positive {
-color: green;
-font-size: 0.8em;
+    color: green;
+    font-size: 0.8em;
 }
 .negative {
-color: #de1c1c;
-font-size: 0.8em;
+    color: #de1c1c;
+    font-size: 0.8em;
 }
 
 .companyRow:last-child{
-border: none;
+    border: none;
 }
 .outerMarquee .companyRow {
-border-bottom: none !important;
+    border-bottom: none !important;
 }
