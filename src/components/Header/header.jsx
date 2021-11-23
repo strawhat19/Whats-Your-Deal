@@ -10,7 +10,11 @@ function Header() {
         let menuToggler = document.getElementById("openMenuToggler");
         mobileMenuOpen.classList.toggle("open-mobile-menu");
         menuToggler.classList.toggle("clicked");
-        // mobileMenuOpen.classList.contains("open-mobile-menu") ? mobileMenuOpen.classList.toggle("closed-mobile-menu") : mobileMenuOpen.classList.toggle("open-mobile-menu");
+
+        menuToggler.addEventListener(`change`, event => {
+            console.log(event);
+        })
+
         identifier = mobileMenuOpen.classList[2];
         console.log(identifier);
 
@@ -18,13 +22,9 @@ function Header() {
             case `null`:
             case `undefined`:
             default:
-                // mobileMenuOpen.classList.toggle(`open-mobile-menu`);
-                mobileMenuOpen.classList.remove(`clickToClose`);
-                mobileMenuOpen.style.animation = `fadeIn var(--transition) !important;`;
+                mobileMenuOpen.classList.toggle(`closed`);
                 break;
             case `open-mobile-menu`:
-                // mobileMenuOpen.classList.remove(`open-mobile-menu`);
-                mobileMenuOpen.classList.toggle(`clickToClose`);
                 break;
         }
     }

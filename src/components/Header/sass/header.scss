@@ -140,77 +140,10 @@ nav .Projects.active a:hover {
     transition: 0.15s cubic-bezier(0.77,0.2,0.05,1.0);
 }
 
-.social-links a, #socialLinksMain a, #socialLinksContact a, #socialLinksFooter a {
-    color: white;
-    font-size: 20px;
-    transition: var(--transition);
-    padding: 5px 9px !important;
-    border-radius: 100%;
-}
-
-.social-with-text a {
-    font-size: 20px;
-    transition: var(--transition);
-    padding: 5px 9px !important;
-}
-
-.social-with-text .fa {
-    font-size: 16px !important;
-    font-weight: 600 !important;
-    padding: 5px 9px !important;
-    transition: var(--transition);
-}
-
-.social-links .linkedInLink:hover {
-    padding: 5px 9px !important;
-    color: white;
-    background: #0a66c2;
-    font-size: 20px;
-    transition: var(--transition);
-}
-
-.social-links .piratechsLink:hover {
-    padding: 5px 9px !important;
-    color: white;
-    background: #2b4261;
-    font-size: 20px;
-    transition: var(--transition);
-}
-
-.social-links .githubLink:hover {
-    padding: 5px 9px !important;
-    color: #0d1117 !important;
-    background: var(--secondary);
-    font-size: 20px;
-    transition: var(--transition);
-}
-
-.social-links .instagramLink:hover {
-    padding: 5px 9px !important;
-    color: white;
-    background: #88205b;
-    font-size: 20px;
-    font-weight: 600 !important;
-    transition: var(--transition);
-}
-
-.social-links .emailLink:hover {
-    padding: 5px 9px !important;
-    background: white;
-    font-size: 20px;
-    transition: var(--transition);
-    i {
-        color: var(--main) !important;
-    }
-}
-
 .mobile-menu {
     display: none !important;
 }
 
-.social-links {
-    display: none;
-}
 
 .mobile-menu-option {
     padding-right: 15px;
@@ -324,6 +257,10 @@ nav .Projects.active a:hover {
     right: 0;
     transition: var(--transition);
     display: none;
+}
+
+.desktop-menu-option.closed {
+    animation: fadeOut var(--transition);
 }
 
 .desktop-menu-option .nav-link {
@@ -505,4 +442,72 @@ nav .Projects.active a:hover {
         font-size: 22px;
     }
 
+}
+
+.social-links a, #socialLinksMain a, #socialLinksContact a, #socialLinksFooter a {
+    color: white;
+    font-size: 20px;
+    transition: var(--transition);
+    padding: 5px 9px !important;
+    border-radius: 100%;
+}
+
+.social-with-text a {
+    font-size: 20px;
+    transition: var(--transition);
+    padding: 5px 9px !important;
+}
+
+.social-with-text .fa {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    padding: 5px 9px !important;
+    transition: var(--transition);
+}
+
+.social-links .linkedInLink:hover {
+    padding: 5px 9px !important;
+    color: white;
+    background: #0a66c2;
+    font-size: 20px;
+    transition: var(--transition);
+}
+
+.social-links .piratechsLink:hover {
+    padding: 5px 9px !important;
+    color: white;
+    background: #2b4261;
+    font-size: 20px;
+    transition: var(--transition);
+}
+
+.social-links .githubLink:hover {
+    padding: 5px 9px !important;
+    color: #0d1117 !important;
+    background: var(--secondary);
+    font-size: 20px;
+    transition: var(--transition);
+}
+
+.social-links .instagramLink:hover {
+    padding: 5px 9px !important;
+    color: white;
+    background: #88205b;
+    font-size: 20px;
+    font-weight: 600 !important;
+    transition: var(--transition);
+}
+
+.social-links .emailLink:hover {
+    padding: 5px 9px !important;
+    background: white;
+    font-size: 20px;
+    transition: var(--transition);
+    i {
+        color: var(--main) !important;
+    }
+}
+
+.social-links {
+    display: none;
 }
