@@ -1,0 +1,31 @@
+footer {
+    background: black;
+    height: 40px;
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+    flex-wrap: wrap;
+    font-family: Noto Sans JP;
+    font-weight: 300 !important;
+    font-size: 13px;
+    grid-gap: 10px;
+    z-index: 1;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    &::before {
+      content: '';
+      position: absolute;
+      top: -25%;
+      left: 0;
+      background: var(--react);
+      height: 25%;
+      width: 100%;
+    }
+  }
+  
+  footer i, .vertical-sep {
+    color: var(--react);
+  }
