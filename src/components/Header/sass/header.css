@@ -53,8 +53,8 @@ nav li {
 @media (max-width: 992px) {
   nav {
     padding: 0px 0px;
+    background: var(--main);
     height: 48px;
-    background: #000;
     position: fixed;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -67,7 +67,7 @@ nav li {
             justify-content: space-between;
     top: 0;
     width: 100%;
-    border-bottom: 1px solid var(--main);
+    border-bottom: 1px solid white;
     z-index: 3;
     -webkit-backdrop-filter: blur(2px);
             backdrop-filter: blur(2px);
@@ -516,6 +516,9 @@ nav .Projects.active a:hover {
   #socialLinksMain {
     display: none !important;
   }
+  .desktop-menu-option.open-mobile-menu {
+    margin: 0.04em 0 0 0;
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -537,11 +540,12 @@ nav .Projects.active a:hover {
     display: -ms-flexbox;
     display: flex;
     grid-column-gap: 15px;
+    grid-column-gap: 15px;
     -webkit-column-gap: 15px;
             column-gap: 15px;
     padding-top: 15px;
     padding-bottom: 15px;
-    border-bottom: 1px solid var(--main);
+    border-bottom: 1px solid white;
   }
 }
 

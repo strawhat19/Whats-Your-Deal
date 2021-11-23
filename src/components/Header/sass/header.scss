@@ -31,18 +31,19 @@ nav {
     }
     @media (max-width: 992px) { // iPads
         padding: 0px 0px;
+        background: var(--main);
         height: 48px;
-        background: #000;
         position: fixed;
         display: flex;
         align-items: center;
         justify-content: space-between;
         top: 0;
         width: 100%;
-        border-bottom: 1px solid var(--main);
+        border-bottom: 1px solid white;
         z-index: 3;
         backdrop-filter: blur(2px);
-        transition: var(--transition);
+        transition: var(
+        --transition);
     }
     @media (max-width: 480px) { // iPhone SE
         width: 100%;
@@ -364,13 +365,7 @@ nav .Projects.active a:hover {
     z-index: -5;
 }
 
-
 /* Mobile Menu+ */
-@media screen and (min-width: 992px) {
-
-  
-}
-
 @media screen and (max-width: 1500px) {
 
     .header,  #Projects .header {
@@ -440,6 +435,10 @@ nav .Projects.active a:hover {
         display: none !important;
     }
 
+    .desktop-menu-option.open-mobile-menu {
+        margin: 0.04em 0 0 0;
+    }
+
 }
 
 @media screen and (min-width: 992px) {
@@ -457,10 +456,11 @@ nav .Projects.active a:hover {
     #socialLinks {
         display: flex;
         grid-column-gap: 15px;
+        grid-column-gap: 15px;
         column-gap: 15px;
         padding-top: 15px;
         padding-bottom: 15px;
-        border-bottom: 1px solid var(--main);
+        border-bottom: 1px solid white;
     }
 
 }
