@@ -1,7 +1,7 @@
 import React from 'react';
 import "./sass/stockbar.css";
 
-function Stockbar() {
+function Stockbar(stockBar) {
 
     const [isStockList, setIsStockList] = React.useState(false);
 
@@ -12,7 +12,7 @@ function Stockbar() {
         setIsStockList(true);
      };
 
-    const stockBar = document.getElementById(`stockBar`);
+    stockBar = document.getElementById(`stockBar`);
     let profilesArray = [];
 
     fetch(`https://financialmodelingprep.com/api/v3/available-traded/list?apikey=7e60778244bbb11a3e59192e565ed625`)
