@@ -2,7 +2,7 @@
 
 .stockBar {
     display: flex;
-    width: auto;
+    width: 800%;
     align-items: center;
     position: absolute;
     top: 50px;
@@ -11,6 +11,7 @@
         text-align: center;
         width: 177px;
         font-size: 0.8em;
+        color: white;
       }
       
       .marqueeAnim {

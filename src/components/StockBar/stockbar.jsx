@@ -1,7 +1,7 @@
 import React from 'react';
 import "./sass/stockbar.css";
 
-function Stockbar(stockBar) {
+function Stockbar(stockBar, stockElement, companyRow, companyImage, profilesArray, stockList) {
 
     const [isStockList, setIsStockList] = React.useState(false);
 
@@ -13,52 +13,61 @@ function Stockbar(stockBar) {
      };
 
     stockBar = document.getElementById(`stockBar`);
-    let profilesArray = [];
+    profilesArray = JSON.parse(localStorage.getItem('Profiles List')) || [];
 
-    fetch(`https://financialmodelingprep.com/api/v3/available-traded/list?apikey=7e60778244bbb11a3e59192e565ed625`)
-    .then(response => {
-        return response.json();
-    }).then(stockList => {
+    // fetch(`https://financialmodelingprep.com/api/v3/available-traded/list?apikey=7e60778244bbb11a3e59192e565ed625`)
+    // .then(response => {
+    //     return response.json();
+    // }).then(data => {
 
-        stockList.splice(100);
+    //     data.splice(100);
+    //     stockList = [...new Set(data)];
+        stockList = JSON.parse(localStorage.getItem('Stock List')) || [];
         console.log('Stock API Data Is:');
         console.log(stockList);
+        // localStorage.setItem(`Stock List`, JSON.stringify(stockList));
+        stockList.shift();
+        let stockListModded = stockList;
+        console.log('Stock List Modded:');
+        console.log(stockListModded);
 
-        stockList.forEach((company, index, stockElement, companyRow) => {
+        stockList.forEach((company, index) => {
             let profileURL = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/company/profile/${company.symbol}`;
-            fetch(profileURL)
-                .then((newResponse) => newResponse.json())
-                .then((profileData) => {
+            // fetch(profileURL)
+            //     .then((newResponse) => newResponse.json())
+            //     .then((profileData) => {
 
-                // Reinitializing Profile Array
-                profilesArray.push(profileData);
-                profilesArray.forEach((company, index) => {
+            //     // Reinitializing Profile Array
+            //     profilesArray.push(profileData);
+                profilesArray = JSON.parse(localStorage.getItem('Profiles List')) || [];
+                // localStorage.setItem(`Profiles List`, JSON.stringify(profilesArray));
+                profilesArray.forEach((companyProfile, index) => {
 
                     // Begin Profiles Array // Search Results Function
                     let plus = ``;
                     let condition = ``;
-                    let symbol = company.symbol;
-                    let image = company.profile.image;
-                    let changes = company.profile.changes.toFixed(2);
-                    let name = company.profile.companyName;
+                    let symbol = companyProfile.symbol;
+                    // let image = companyProfile.profile.image;
+                    // let changes = companyProfile.profile.changes;
+                    let name = companyProfile.profile.companyName;
 
                     // Filtering for Price Increase or Decrease
-                    if (changes >= 0) {
-                        condition = `positive`;
-                        plus = `+`;
-                    }  else {
-                        condition = `negative`;
-                    }
+                    // if (changes >= 0) {
+                    //     condition = `positive`;
+                    //     plus = `+`;
+                    // }  else {
+                    //     condition = `negative`;
+                    // }
             
                     // Creating Rows for Each Company
                     companyRow = document.createElement(`div`);
-                    let companyImage = document.createElement(`img`); // Creating Image for Each Company
+                    // companyImage = document.createElement(`img`); // Creating Image for Each Company
         
                     // Setting the Attributes of the Company Image
-                    companyImage.setAttribute(`src`, image);
-                    companyImage.setAttribute(`class`, `companyIcon`);
-                    companyImage.setAttribute(`height`, `100px`);
-                    companyImage.setAttribute(`width`, `100px`);
+                    // companyImage.setAttribute(`src`, image);
+                    // companyImage.setAttribute(`class`, `companyIcon`);
+                    // companyImage.setAttribute(`height`, `100px`);
+                    // companyImage.setAttribute(`width`, `100px`);
 
                     // Setting the Attributes of the Company Rows
                     companyRow.setAttribute(`class`, `companyRow`);
@@ -71,8 +80,8 @@ function Stockbar(stockBar) {
                     companyElement.innerHTML = `
                     <span class="companyName">${name}</span> 
                     <span class="companySymbol">(${symbol})</span>
-                    <span class="companyChanges ${condition}">(${plus}${changes})</span>`; // Injecting the Elements we Created into the Rows
-                    companyRow.prepend(companyImage);
+                    <span class="companyChanges ${condition}">(${plus})</span>`; // Injecting the Elements we Created into the Rows
+                    // companyRow.prepend(companyImage);
                     companyRow.append(companyElement);
 
                     // Returning the Company Row
@@ -84,12 +93,12 @@ function Stockbar(stockBar) {
                 stockBar.append(companyRow);
 
                 // Image Fixing
-                const images = document.querySelectorAll(`img`);
-                images.forEach(image => {
-                    image.addEventListener(`error`,event => {
-                        event.target.src=`../img/Stock-Icon-Circle-Icon.svg`;
-                    })
-                })
+                // const images = document.querySelectorAll(`img`);
+                // images.forEach(image => {
+                //     image.addEventListener(`error`,event => {
+                //         event.target.src=`../img/Stock-Icon-Circle-Icon.svg`;
+                //     })
+                // })
 
                 // let searchTerm = 'Hello';
 
@@ -109,7 +118,7 @@ function Stockbar(stockBar) {
                 // symbol.innerHTML = symbol.textContent.replace(filter,match => `<mark>${match}</mark>`);
                 // })
 
-            });
+            // }); // Inner Fetch
 
             stockElement = document.createElement(`div`);
             stockElement.setAttribute(`class`,`stockElement`);
@@ -131,7 +140,7 @@ function Stockbar(stockBar) {
             stockBar.append(companyElement);
         });
 
-    })
+    // }) // End Primary Fetch
 
     return (
         <div className="stockBar marquee" id="stockBar"></div>

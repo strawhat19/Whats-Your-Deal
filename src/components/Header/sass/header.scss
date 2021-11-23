@@ -21,6 +21,16 @@ nav {
         justify-content: center;
         padding: 15px;
         margin: 0;
+    } @media (min-width: 992px) { // Above iPads
+        ul {
+            display: flex;
+            flex-direction: row;
+            place-items: center;
+            justify-content: center;
+            padding: 15px;
+            list-style-type: none;
+            margin: 0;
+        }
     }
     @media (max-width: 992px) { // iPads
         padding: 0px 0px;
@@ -303,7 +313,7 @@ nav .Projects.active a:hover {
 
 .desktop-menu-option {
     z-index: -5;
-    opacity: 0;
+    opacity: 1;
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -311,7 +321,7 @@ nav .Projects.active a:hover {
     left: 0;
     right: 0;
     transition: var(--transition);
-    display: none;
+    /* display: none; */
     animation: fadeOut var(--transition);
 }
 
