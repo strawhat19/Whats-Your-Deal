@@ -5,11 +5,11 @@ function Footer() {
     const date = new Date();
     const year = date.getFullYear();
     return (
-    <footer class="footer black">
+    <footer class="footer red">
         <div class="nameText">
-            <a href="https://github.com/strawhat19" target="_blank" class="hoverLine" title="GitHub"><i class="fab fa-github"></i> | Rakib Ahmed</a>
+            <a class="customLink" href="https://strawhat19.github.io/Whats-Your-Deal/" target="_blank" title="GitHub Pages Deployment"><i class="fab fa-github"></i> | What's Your Deal</a>
         </div>
-        <div class="siteText">Copyright <i class="fas fa-copyright"></i> {year}</div>
+        <div class="siteText copyright">Copyright <i class="fas fa-copyright"></i> {year}</div>
     </footer>
     );
 }

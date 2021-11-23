@@ -1,5 +1,7 @@
 footer {
-  background: black;
+  background: var(--main);
+  color: white;
+  font-family: 'Montserrat' !important;
   height: 40px;
   -webkit-backdrop-filter: blur(8px);
           backdrop-filter: blur(8px);
@@ -22,20 +24,16 @@ footer {
   z-index: 1;
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 95% !important;
 }
 
-footer::before {
-  content: '';
-  position: absolute;
-  top: -25%;
-  left: 0;
-  background: var(--react);
-  height: 25%;
-  width: 100%;
+footer a {
+  color: white;
+  font-family: 'Montserrat';
+  text-decoration: none;
 }
 
 footer i, .vertical-sep {
-  color: var(--react);
+  color: #fff;
 }
 /*# sourceMappingURL=footer.css.map */

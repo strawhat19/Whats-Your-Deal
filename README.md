@@ -4,8 +4,8 @@
 
 Practicing Asyncronous Fetching with Stocks API.
 
-![Screenshot of Application](./img/screenshot1cropt.jpg)
-![Screenshot of Application 2](./img/screenshot2.jpg)
+![Screenshot of Application](./public/assets/screenshot1cropt.jpg)
+![Screenshot of Application 2](./public/assets/screenshot2.jpg)
 
 ## Table of Contents  
 * [Installation](#installation)  
