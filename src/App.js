@@ -4,7 +4,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src="../public/assets/Stock-Icon.svg" className="App-logo" alt="logo" />
+        <img src="https://raw.githubusercontent.com/strawhat19/Whats-Your-Deal/d4a9dee824a6172f64961e514f998ef99c5b45cb/public/assets/Stock-Icon-Circle-Icon.svg" className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
