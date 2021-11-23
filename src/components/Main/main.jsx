@@ -1,5 +1,6 @@
 import React from 'react';
 import "./sass/main.css";
+import "./css/customCSS.css";
 
 function Main() {
     return (

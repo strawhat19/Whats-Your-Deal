@@ -35,7 +35,7 @@ footer {
 @media (max-width: 992px) {
   footer {
     padding: 10px 30px;
-    width: 87% !important;
+    width: 100% !important;
   }
 }
 

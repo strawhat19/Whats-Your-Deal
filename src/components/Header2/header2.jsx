@@ -1,5 +1,6 @@
 import React from 'react';
 import "./sass/header2.css";
+import "./css/customCSS.css";
 
 const Header2 = (props) => {
     const [isContainerActive, setIsContainerActive] = React.useState(false);

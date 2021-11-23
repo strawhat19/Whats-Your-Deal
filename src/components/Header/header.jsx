@@ -1,14 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import "./sass/header.css";
+import "./css/customCSS.css";
 
 function Header() {
     
-    function openMobileMenu() {
+    const openMobileMenu = (identifier) =>  {
         let mobileMenuOpen = document.getElementById("desktopMenu");
         let menuToggler = document.getElementById("openMenuToggler");
         mobileMenuOpen.classList.toggle("open-mobile-menu");
         menuToggler.classList.toggle("clicked");
+        // mobileMenuOpen.classList.contains("open-mobile-menu") ? mobileMenuOpen.classList.toggle("closed-mobile-menu") : mobileMenuOpen.classList.toggle("open-mobile-menu");
+        identifier = mobileMenuOpen.classList[2];
+        console.log(identifier);
+
+        switch (identifier) {
+            case `null`:
+            case `undefined`:
+            default:
+                // mobileMenuOpen.classList.toggle(`open-mobile-menu`);
+                mobileMenuOpen.classList.remove(`clickToClose`);
+                mobileMenuOpen.style.animation = `fadeIn var(--transition) !important;`;
+                break;
+            case `open-mobile-menu`:
+                // mobileMenuOpen.classList.remove(`open-mobile-menu`);
+                mobileMenuOpen.classList.toggle(`clickToClose`);
+                break;
+        }
     }
 
     return (

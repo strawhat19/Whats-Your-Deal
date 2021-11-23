@@ -76,6 +76,8 @@ nav {
     flex-direction: column;
     align-items: center;
     z-index: 1;
+    width: 100% !important;
+    height: 50px;
 }
 
 nav.scrolled {
@@ -314,15 +316,14 @@ nav .Projects.active a:hover {
 .desktop-menu-option {
     z-index: -5;
     opacity: 1;
-    display: flex;
+    // display: flex;
     flex-direction: column;
     position: absolute;
     top: -450%;
     left: 0;
     right: 0;
     transition: var(--transition);
-    /* display: none; */
-    animation: fadeOut var(--transition);
+    display: none;
 }
 
 .desktop-menu-option .nav-link {
@@ -355,7 +356,7 @@ nav .Projects.active a:hover {
     background: var(--secondary);
     padding: 0;
     margin: 0.0189em 0 0 0;
-    animation:  fadeIn var(--transition);
+    animation: fadeIn var(--transition);
 }
 
 .desktop-menu-option.open-mobile-menu .nav-link {
@@ -436,6 +437,10 @@ nav .Projects.active a:hover {
         display: flex;
     }
 
+    // .desktop-menu-option.open-mobile-menu {
+    //     animation: fadeOut var(--transition) !important;
+    // }
+
 }
 
 @media screen and (max-width: 1235px) {
@@ -446,6 +451,7 @@ nav .Projects.active a:hover {
 
     .desktop-menu-option.open-mobile-menu {
         margin: 0.04em 0 0 0;
+        // animation: fadeOut var(--transition) !important;
     }
 
 }

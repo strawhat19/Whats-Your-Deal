@@ -1,5 +1,6 @@
 import React from 'react';
 import "./sass/footer.css";
+import "./css/customCSS.css";
 
 function Footer() {
     const date = new Date();

@@ -136,6 +136,8 @@ nav li {
       -ms-flex-align: center;
           align-items: center;
   z-index: 1;
+  width: 100% !important;
+  height: 50px;
 }
 
 nav.scrolled {
@@ -413,9 +415,6 @@ nav .Projects.active a:hover {
 .desktop-menu-option {
   z-index: -5;
   opacity: 1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -426,9 +425,7 @@ nav .Projects.active a:hover {
   right: 0;
   -webkit-transition: var(--transition);
   transition: var(--transition);
-  /* display: none; */
-  -webkit-animation: fadeOut var(--transition);
-          animation: fadeOut var(--transition);
+  display: none;
 }
 
 .desktop-menu-option .nav-link {

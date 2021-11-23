@@ -1,5 +1,6 @@
 import React from 'react';
 import "./sass/company.css";
+import "./css/customCSS.css";
 
 function Company(companySymbol, companyProfile) {
 // // Company JS
