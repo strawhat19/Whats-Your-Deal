@@ -1,0 +1,171 @@
+#marqueeTest {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  grid-gap: 1em;
+  background: white;
+  max-height: 1.5em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#marqueeTest .stockElement {
+  text-align: center;
+  width: 177px;
+  font-size: 0.8em;
+}
+
+#marqueeTest .marqueeAnim {
+  -webkit-animation: marqueeMove 100s linear infinite;
+          animation: marqueeMove 100s linear infinite;
+}
+
+@-webkit-keyframes marqueeMove {
+  0% {
+    -webkit-transform: translate(0%);
+            transform: translate(0%);
+  }
+  100% {
+    -webkit-transform: translate(-50%);
+            transform: translate(-50%);
+  }
+}
+
+@keyframes marqueeMove {
+  0% {
+    -webkit-transform: translate(0%);
+            transform: translate(0%);
+  }
+  100% {
+    -webkit-transform: translate(-50%);
+            transform: translate(-50%);
+  }
+}
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    stroke-width: 3px;
+    stroke-dasharray: 20px;
+    stroke-dashoffset: -1000%;
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    stroke-width: 10px;
+    stroke-dasharray: 50px;
+    stroke-dashoffset: 2000%;
+  }
+}
+
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    stroke-width: 3px;
+    stroke-dasharray: 20px;
+    stroke-dashoffset: -1000%;
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    stroke-width: 10px;
+    stroke-dasharray: 50px;
+    stroke-dashoffset: 2000%;
+  }
+}
+
+#marqueeTest .spinnerSVG {
+  stroke-dasharray: 5px;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  overflow: visible;
+  margin-left: 1em;
+  max-width: 20px;
+  display: none;
+}
+
+#marqueeTest .spinnerSVG path {
+  stroke: white;
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+  -webkit-animation: spinner 2s linear infinite;
+          animation: spinner 2s linear infinite;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+
+#marqueeTest .show {
+  display: block;
+  -webkit-animation: fadeIn 0.4s ease-in-out;
+          animation: fadeIn 0.4s ease-in-out;
+}
+
+.outerMarquee a:hover {
+  text-decoration: none !important;
+}
+
+.companyRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 38px;
+  width: 100%;
+  border-bottom: 1px solid #de1c1c;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.companyRow a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  grid-gap: .5em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.companyIcon {
+  max-height: 30px;
+  width: auto;
+  margin-right: 10px;
+}
+
+.companySymbol {
+  color: #b5b5b5;
+  font-size: 0.8em;
+}
+
+.positive {
+  color: green;
+  font-size: 0.8em;
+}
+
+.negative {
+  color: #de1c1c;
+  font-size: 0.8em;
+}
+
+.companyRow:last-child {
+  border: none;
+}
+
+.outerMarquee .companyRow {
+  border-bottom: none !important;
+}
+/*# sourceMappingURL=stockbar.css.map */

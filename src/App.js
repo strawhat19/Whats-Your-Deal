@@ -1,16 +1,13 @@
 import './sass/App.css';
+import Header from './components/Header/header';
+import Main from './components/Main/main';
 import Footer from './components/Footer/footer';
-import Navigation from './components/Navigation/navigation';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Navigation />
-        <img src="https://raw.githubusercontent.com/strawhat19/Whats-Your-Deal/d4a9dee824a6172f64961e514f998ef99c5b45cb/public/assets/Stock-Icon-Circle-Icon.svg" className="App-logo" alt="logo" />
-        <p>Edit <code>src/App.js</code> and save to reload.</p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">What's Your Deal?!</a>
-      </header>
+    <Header />
+    <Main />
     <Footer />
     </div>
   );
