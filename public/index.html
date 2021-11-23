@@ -14,5 +14,21 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- Custom JS -->
+    <script>
+
+      console.log('Connected');
+
+      // Open and Close Mobile Menu
+      const openMenu = document.getElementById("openMenu");
+      const closeMenu = document.getElementById("closeMenu");
+
+      function openMobileMenu() {
+          var mobileMenuOpen = document.getElementById("desktopMenu");
+          var menuToggler = document.getElementById("openMenuToggler");
+          mobileMenuOpen.classList.toggle("open-mobile-menu");
+          menuToggler.classList.toggle("clicked");
+      }
+    </script>
   </body>
 </html>
