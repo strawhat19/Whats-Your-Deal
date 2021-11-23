@@ -1,13 +1,13 @@
-#marqueeTest {
+// Stock Bar Styling
+
+.stockBar {
     display: flex;
-    flex-wrap: nowrap;
-    grid-gap: 1em;
-    background: white;
-    max-height: 1.5em;
+    width: 100%;
     align-items: center;
-    justify-content: center;
-
-
+    position: absolute;
+    top: 50px;
+    background: var(--secondary);
+    animation: marqueeMove 100s linear infinite;
     .stockElement {
         text-align: center;
         width: 177px;
@@ -61,47 +61,49 @@
       .show {
         display: block;
         animation: fadeIn 0.4s ease-in-out;
-      }}
+    }
 
-      .outerMarquee a:hover {
-        text-decoration: none !important;
-      }
+}
 
-      .companyRow {
-        display: flex;
-        height: 38px;
-        width: 100%;
-        border-bottom: 1px solid #de1c1c;
-        justify-content: center;
-        align-items: center;
-      }
-      .companyRow a {
-        display: flex;
-        justify-content: center;
-        grid-gap: .5em;
-        align-items: center;
-      }
-      .companyIcon {
-        max-height: 30px;
-        width: auto;
-        margin-right: 10px;
-      }
-      .companySymbol {
-        color: #b5b5b5;
-        font-size: 0.8em;
-      }
-      .positive {
-        color: green;
-        font-size: 0.8em;
-      }
-      .negative {
-        color: #de1c1c;
-        font-size: 0.8em;
-      }
+.outerMarquee a:hover {
+text-decoration: none !important;
+}
 
-      .companyRow:last-child{
-        border: none;
-      }
-      .outerMarquee .companyRow {
-        border-bottom: none !important;
-      }
+.companyRow {
+display: flex;
+height: 38px;
+width: 100%;
+border-bottom: 1px solid #de1c1c;
+justify-content: center;
+align-items: center;
+}
+.companyRow a {
+display: flex;
+justify-content: center;
+grid-gap: .5em;
+align-items: center;
+}
+.companyIcon {
+max-height: 30px;
+width: auto;
+margin-right: 10px;
+}
+.companySymbol {
+color: #b5b5b5;
+font-size: 0.8em;
+}
+.positive {
+color: green;
+font-size: 0.8em;
+}
+.negative {
+color: #de1c1c;
+font-size: 0.8em;
+}
+
+.companyRow:last-child{
+border: none;
+}
+.outerMarquee .companyRow {
+border-bottom: none !important;
+}

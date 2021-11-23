@@ -50,21 +50,6 @@ nav {
     }
 }
 
-/* Header Styling */
-.opening-header {
-    text-align: center;
-    font-size: 75px;
-    padding: 85px 55px 30px;
-    margin: 0;
-    background: linear-gradient(black,black), url(https://raw.githubusercontent.com/strawhat19/Portfolio/main/assets/images/Ocean-Stars.jpg);
-    background-position: 50% 0%;
-    background-attachment: fixed;
-    top: 0;
-    letter-spacing: 2px;
-    border-bottom: 1px solid teal;
-    transition: var(--transition);
-}
-
 .header {
     display: flex;
     flex-direction: column;
@@ -73,7 +58,7 @@ nav {
 }
 
 nav.scrolled {
-    background: black;
+    background: var(--secondary);
 }
 
 .nav-link {
@@ -91,11 +76,11 @@ nav.scrolled {
         transition: 0.15s cubic-bezier(0.77,0.2,0.05,1.0);
     }
     &:hover {
-        background: black;
+        background: var(--secondary);
         transition: var(--transition);
         a {
-            border-right: 1px solid black;
-            border-left: 1px solid black;
+            border-right: 1px solid var(--secondary);
+            border-left: 1px solid var(--secondary);
             transition: 0.15s cubic-bezier(0.77,0.2,0.05,1.0);
         }
     }
@@ -172,7 +157,7 @@ nav .Projects.active a:hover {
 .social-links .githubLink:hover {
     padding: 5px 9px !important;
     color: #0d1117 !important;
-    background: black;
+    background: var(--secondary);
     font-size: 20px;
     transition: var(--transition);
 }
@@ -232,7 +217,7 @@ nav .Projects.active a:hover {
     transition: var(--transition);
     &:hover {
         cursor: pointer;
-        background: black;
+        background: var(--secondary);
         display: flex;
         border-right: 1px solid white;
         border-left: 1px solid white;
@@ -344,7 +329,7 @@ nav .Projects.active a:hover {
     right: 0;
     z-index: -5;
     transition: var(--transition);
-    background: black;
+    background: var(--secondary);
     padding: 0;
     margin: 0.0189em 0 0 0;
 }

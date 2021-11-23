@@ -1,38 +1,40 @@
 :root {
   --main: #de1c1c;
+  --secondary: black;
   --transition: 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
 
 ::-webkit-input-placeholder {
   font-family: 'Montserrat';
-  color: gray;
+  color: black;
   letter-spacing: 1.8;
 }
 
 :-ms-input-placeholder {
   font-family: 'Montserrat';
-  color: gray;
+  color: black;
   letter-spacing: 1.8;
 }
 
 ::-ms-input-placeholder {
   font-family: 'Montserrat';
-  color: gray;
+  color: black;
   letter-spacing: 1.8;
 }
 
 ::placeholder {
   font-family: 'Montserrat';
-  color: gray;
+  color: black;
   letter-spacing: 1.8;
 }
 
 body {
   margin: 0;
   font-family: 'Montserrat' !important;
-  background: black !important;
+  background: var(--secondary) !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
 }
 
 body, #root, .App, header {
