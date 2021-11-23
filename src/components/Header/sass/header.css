@@ -351,11 +351,6 @@ nav .Projects.active a:hover {
   display: none;
 }
 
-.desktop-menu-option.closed {
-  -webkit-animation: fadeOut var(--transition);
-          animation: fadeOut var(--transition);
-}
-
 .desktop-menu-option .nav-link {
   z-index: -5;
   margin: 1px auto;

@@ -259,9 +259,9 @@ nav .Projects.active a:hover {
     display: none;
 }
 
-.desktop-menu-option.closed {
-    animation: fadeOut var(--transition);
-}
+// .desktop-menu-option.closed {
+//     animation: fadeOut var(--transition);
+// }
 
 .desktop-menu-option .nav-link {
     z-index: -5;
