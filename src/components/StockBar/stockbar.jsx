@@ -26,13 +26,12 @@ function Stockbar(stockBar, stockElement, companyRow, companyImage, profilesArra
         console.log('Stock API Data Is:');
         console.log(stockList);
         // localStorage.setItem(`Stock List`, JSON.stringify(stockList));
-        stockList.shift();
-        let stockListModded = stockList;
-        console.log('Stock List Modded:');
-        console.log(stockListModded);
+        profilesArray.shift();
+        console.log('Profile List Modded:');
+        console.log(profilesArray);
 
-        stockList.forEach((company, index) => {
-            let profileURL = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/company/profile/${company.symbol}`;
+        stockList.map((company, index) => {
+            // let profileURL = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/company/profile/${company.symbol}`;
             // fetch(profileURL)
             //     .then((newResponse) => newResponse.json())
             //     .then((profileData) => {
@@ -41,15 +40,15 @@ function Stockbar(stockBar, stockElement, companyRow, companyImage, profilesArra
             //     profilesArray.push(profileData);
                 profilesArray = JSON.parse(localStorage.getItem('Profiles List')) || [];
                 // localStorage.setItem(`Profiles List`, JSON.stringify(profilesArray));
-                profilesArray.forEach((companyProfile, index) => {
+                profilesArray.map((companyProfile, index) => {
 
                     // Begin Profiles Array // Search Results Function
-                    let plus = ``;
-                    let condition = ``;
+                    // let plus = ``;
+                    // let condition = ``;
                     let symbol = companyProfile.symbol;
+                    let name = companyProfile.profile.companyName;
                     // let image = companyProfile.profile.image;
                     // let changes = companyProfile.profile.changes;
-                    let name = companyProfile.profile.companyName;
 
                     // Filtering for Price Increase or Decrease
                     // if (changes >= 0) {
@@ -80,7 +79,8 @@ function Stockbar(stockBar, stockElement, companyRow, companyImage, profilesArra
                     companyElement.innerHTML = `
                     <span class="companyName">${name}</span> 
                     <span class="companySymbol">(${symbol})</span>
-                    <span class="companyChanges ${condition}">(${plus})</span>`; // Injecting the Elements we Created into the Rows
+                    <span class="companyChanges">Hello</span>`; // Injecting the Elements we Created into the Rows
+                    // <span class="companyChanges ${condition}">(${plus}${changes})</span>`; // Injecting the Elements we Created into the Rows
                     // companyRow.prepend(companyImage);
                     companyRow.append(companyElement);
 
