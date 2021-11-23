@@ -1,6 +1,6 @@
 // Navigation Styling
 
-.navigation {
+nav {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -10,13 +10,6 @@
     z-index: 10;
     border-bottom: 1px solid #ffffff;
     background: var(--main);
-}
-
-nav {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     i {
         color: white !important;
     }
@@ -47,6 +40,24 @@ nav {
     }
     @media (max-width: 480px) { // iPhone SE
         width: 100%;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }
 
@@ -300,6 +311,8 @@ nav .Projects.active a:hover {
     left: 0;
     right: 0;
     transition: var(--transition);
+    display: none;
+    animation: fadeOut var(--transition);
 }
 
 .desktop-menu-option .nav-link {
@@ -332,6 +345,7 @@ nav .Projects.active a:hover {
     background: var(--secondary);
     padding: 0;
     margin: 0.0189em 0 0 0;
+    animation:  fadeIn var(--transition);
 }
 
 .desktop-menu-option.open-mobile-menu .nav-link {

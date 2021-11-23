@@ -1,5 +1,6 @@
 :root {
   --main: #de1c1c;
+  --silver: #c5c5c5;
   --secondary: black;
   --transition: 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 }

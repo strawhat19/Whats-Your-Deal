@@ -1,6 +1,6 @@
 import './sass/App.css';
 import Header from './components/Header/header';
-// import Header2 from './components/Header2/header2';
+import Stockbar from './components/StockBar/stockbar';
 import Main from './components/Main/main';
 import Footer from './components/Footer/footer';
 
@@ -8,6 +8,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <Stockbar />
       <Main />
       <Footer />
     </div>

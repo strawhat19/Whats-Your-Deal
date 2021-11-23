@@ -1,6 +1,5 @@
 import React from 'react';
 import "./sass/main.css";
-// import Stockbar from '../StockBar/stockbar';
 
 function Main() {
     return (

@@ -19,7 +19,8 @@ function Stockbar() {
     .then(response => {
         return response.json();
     }).then(stockList => {
-        
+
+        stockList.splice(100);
         console.log('Stock API Data Is:');
         console.log(stockList);
 
@@ -31,7 +32,6 @@ function Stockbar() {
 
                 // Reinitializing Profile Array
                 profilesArray.push(profileData);
-
                 profilesArray.forEach((company, index) => {
 
                     // Begin Profiles Array // Search Results Function
@@ -61,12 +61,12 @@ function Stockbar() {
                     companyImage.setAttribute(`width`, `100px`);
 
                     // Setting the Attributes of the Company Rows
-                    companyRow.classList.add(`companyRow`);
+                    companyRow.setAttribute(`class`, `companyRow`);
 
                     // Creating a New Element to Contain Company Data
                     let companyElement = document.createElement(`a`);
                     companyElement.setAttribute(`href`,`./html/company.html?symbol=${symbol}`);
-                    companyElement.classList.add(`çompanyElement`);
+                    companyElement.setAttribute(`class`,`çompanyElement`);
                     companyElement.setAttribute(`ìd`, index + 1);
                     companyElement.innerHTML = `
                     <span class="companyName">${name}</span> 
@@ -91,52 +91,50 @@ function Stockbar() {
                     })
                 })
 
-                let searchTerm = 'Hello';
+                // let searchTerm = 'Hello';
 
-                // Highlighting Searched Text on Company Names
-                const companyNames = document.querySelectorAll(`.companyName`);
-                companyNames.forEach(name => {
-                let filteredCharacters = searchTerm.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
-                let filter = new RegExp(`${filteredCharacters}`,`gi`);
-                name.innerHTML = name.textContent.replace(filter,match => `<mark>${match}</mark>`);
-                })
+                // // Highlighting Searched Text on Company Names
+                // const companyNames = document.querySelectorAll(`.companyName`);
+                // companyNames.forEach(name => {
+                // let filteredCharacters = searchTerm.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+                // let filter = new RegExp(`${filteredCharacters}`,`gi`);
+                // name.innerHTML = name.textContent.replace(filter,match => `<mark>${match}</mark>`);
+                // })
 
-                // Highlighting Searched Text on Company Symbols
-                const companySymbols = document.querySelectorAll(`.companySymbol`);
-                companySymbols.forEach(symbol => {
-                let filteredCharacters = searchTerm.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
-                let filter = new RegExp(`${filteredCharacters}`,`gi`);
-                symbol.innerHTML = symbol.textContent.replace(filter,match => `<mark>${match}</mark>`);
-                })
+                // // Highlighting Searched Text on Company Symbols
+                // const companySymbols = document.querySelectorAll(`.companySymbol`);
+                // companySymbols.forEach(symbol => {
+                // let filteredCharacters = searchTerm.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+                // let filter = new RegExp(`${filteredCharacters}`,`gi`);
+                // symbol.innerHTML = symbol.textContent.replace(filter,match => `<mark>${match}</mark>`);
+                // })
 
             });
 
             stockElement = document.createElement(`div`);
-            stockElement.classList.add(`stockElement`);
+            stockElement.setAttribute(`class`,`stockElement`);
+
             // Add symbol with a price
             let companyElement = document.createElement(`a`);
             let companyImage = document.createElement(`img`); // Creating Image for Each Company
+
             // Setting the Attributes of the Company Image
             companyImage.setAttribute(`src`, company);
             companyImage.setAttribute(`class`, `companyIcon`);
             companyImage.setAttribute(`height`, `100px`);
             companyImage.setAttribute(`width`, `100px`);
             companyElement.setAttribute(`href`,`./html/company.html?symbol=${company.symbol}`);
-            companyElement.classList.add(`companyElement`);
+            companyElement.setAttribute(`class`,`companyElement ${company.symbol}`);
             companyElement.setAttribute(`ìd`, index + 1);
             stockElement.innerHTML = `${company.symbol} <span class="positive"> | (${company.price})</span>`;
-            stockBar.classList.add(`marquee`);
             companyElement.append(stockElement);
             stockBar.append(companyElement);
         });
 
-        // IsStockList();
-        // IsStockList;
-
     })
 
     return (
-        <div onClick={IsStockList} className={`stockBar container${isStockList ? " right-panel-active" : ""}`} id="stockBar"></div>
+        <div className="stockBar marquee" id="stockBar"></div>
     );
 }
  
