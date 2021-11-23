@@ -6,6 +6,7 @@ Practicing Asyncronous Fetching with Stocks API.
 
 ![Screenshot of Application](./public/assets/screenshot1cropt.jpg)
 ![Screenshot of Application 2](https://raw.githubusercontent.com/strawhat19/Whats-Your-Deal/ricky/public/assets/screenshot2.JPG)
+![Screenshot of Application 3](https://raw.githubusercontent.com/strawhat19/Whats-Your-Deal/ricky/public/assets/reactInterface.JPG)
 
 ## Table of Contents  
 * [Installation](#installation)  
@@ -17,10 +18,16 @@ Practicing Asyncronous Fetching with Stocks API.
 * [Questions](#questions)
 
 ## Installation
-#### Run the command Open with Live Server to Install!
+```
+git clone git@github.com:strawhat19/Whats-Your-Deal.git
+cd Whats-Your-Deal/
+npm install
+npm start
+```
 
 ## Usage
-#### Use or Open in Default Browser CLI (Command Line Interface) to run this Application.
+#### View the deployment or install it yourself following the instructions. To edit the styling of components, use the custom CSS files.
+https://whats-your-deal.herokuapp.com/
 
 ## Tests
 #### Jest & NPM Tests were used to ensure quality on this Application.

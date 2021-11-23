@@ -30,10 +30,13 @@ function Header() {
             case `undefined`:
             default:
                 mobileMenuOpen.toggleClass(`closed`);
-                // mobileMenuOpen.fadeOut(500);
                 break;
             case `open-mobile-menu`:
                 // mobileMenuOpen.fadeIn(500);
+                // mobileMenuOpen.css({
+                //     "top": "-100px",
+                //     "opacity": "1"
+                //   });
                 break;
         }
     }
