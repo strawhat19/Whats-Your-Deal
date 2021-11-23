@@ -7,14 +7,14 @@ function Stockbar(stockBar, stockElement, companyRow, companyImage, profilesArra
 
     // const title = React.createElement('h1', {}, 'My First React Code');
 
-    // const [isStockList, setIsStockList] = React.useState(true);
+    const [isStockList, setIsStockList] = React.useState(true);
 
-    // const isntStockList = () => {
-    //     setIsStockList(false);
-    //  };  
-    //  const IsStockList = () => {
-    //     setIsStockList(true);
-    //  };
+    const isntStockList = () => {
+        setIsStockList(false);
+     };  
+     const IsStockList = () => {
+        setIsStockList(true);
+     };
 
     // window.addEventListener('DOMContentLoaded', (event) => {
         stockBar = document.getElementById(`stockBar`);

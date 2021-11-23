@@ -9,10 +9,20 @@ function Header() {
     const openMobileMenu = (identifier) =>  {
         let mobileMenuOpen = $("#desktopMenu");
         let menuToggler = $("openMenuToggler");
+        let mobileMenuJS = document.getElementById(`desktopMenu`);
+
         mobileMenuOpen.toggleClass("open-mobile-menu");
         menuToggler.toggleClass("clicked");
 
-        identifier = document.getElementById(`desktopMenu`).classList[2];
+        // if (mobileMenuJS.classList.contains(`closed`)) {
+        //     mobileMenuOpen.show(500);
+        //     // mobileMenuOpen.toggleClass("open-mobile-menu");
+        //     // menuToggler.toggleClass("clicked");
+        // } else {
+        //     mobileMenuOpen.hide(500);
+        // }
+
+        identifier = mobileMenuJS.classList[2];
         console.log(identifier);
 
         switch (identifier) {
