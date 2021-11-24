@@ -20,6 +20,7 @@
   -webkit-transition: var(--transition);
   transition: var(--transition);
   border-bottom: 2px solid var(--main);
+  font-weight: 600;
 }
 
 .stockBar a {
@@ -174,7 +175,6 @@
 .companySymbol {
   color: black;
   font-size: 0.8em;
-  font-weight: 600;
 }
 
 .positive {
