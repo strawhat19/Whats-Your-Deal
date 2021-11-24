@@ -28,7 +28,6 @@ export default class Stockbar extends React.Component {
 
     async componentDidMount(stockList, stockElement, companyRow, companyImage, profileList) {
 
-        let profileArray = [];
         $(`#stockBar`).hide();
 
         const stockAPIURL = `https://financialmodelingprep.com/api/v3/available-traded/list?limit=100&apikey=7e60778244bbb11a3e59192e565ed625`;
@@ -36,27 +35,27 @@ export default class Stockbar extends React.Component {
         stockList = await response.json();
         stockList.splice(100);
 
-        console.log(`Stock Data:`);
-        console.log(stockList);
+        // console.log(`Stock Data:`);
+        // console.log(stockList);
         this.setState({ stocks : stockList, loading: false});
         this.setState({ profiles: JSON.parse(localStorage.getItem(`Profiles List`)), loading: false});
-
-        profileArray = JSON.parse(localStorage.getItem(`Profiles List`)) || [];
-        console.log(`Profile Data:`);
-        console.log(profileArray);
 
     }
 
     render() {
 
-        if (!this.state.stocks.length) {
+        let profileArray = [...this.state.profiles] || JSON.parse(localStorage.getItem(`Profiles List`)) || [];
+        console.log(`Profile Data:`);
+        console.log(profileArray);
+
+        if (!this.state.profiles.length) {
             return <div>Didnt get Stocks</div>
         }
         if (this.state.loading) {
             return <div>Loading...</div>
         }
 
-        const stockProfileBarRender = this.state.profiles.map((stockProfile,index) => {
+        const stockProfileBarRender = profileArray.map((stockProfile,index) => {
 
             let emptyString = `Nothing to Show`;
             let placeHolderImage = `https://raw.githubusercontent.com/strawhat19/Whats-Your-Deal/main/public/assets/Stock-Icon-Circle-Icon.png`;
