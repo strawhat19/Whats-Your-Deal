@@ -1,0 +1,39 @@
+:root {
+  --main: #de1c1c;
+  --silver: #c5c5c5; // Silver
+  --secondary: black;
+  --transition: 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+::placeholder {
+  font-family: 'Montserrat';
+  color: black;
+  letter-spacing: 1.8;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat' !important;
+  background: var(--secondary) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+body, #root, .App, header {
+  width: 100% !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* iPhone SE */
+@media only screen and (max-width: 480px) {
+
+  body {
+      width: 100vw;
+  }
+
+}
