@@ -23,7 +23,7 @@ function Header() {
         // }
 
         identifier = mobileMenuJS.classList[2];
-        console.log(identifier);
+        // console.log(identifier);
 
         switch (identifier) {
             case `null`:

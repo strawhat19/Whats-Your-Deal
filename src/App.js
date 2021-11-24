@@ -10,6 +10,7 @@ function App() {
     <Router>
         <div className="App">
           <Header />
+          <Stockbar />
           <Main />            
           <Footer />
         </div>
