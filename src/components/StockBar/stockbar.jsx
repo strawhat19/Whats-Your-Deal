@@ -35,18 +35,25 @@ export default class Stockbar extends React.Component {
         stockList = await response.json();
         stockList.splice(100);
 
-        // console.log(`Stock Data:`);
-        // console.log(stockList);
-        this.setState({ stocks : stockList, loading: false});
-        this.setState({ profiles: JSON.parse(localStorage.getItem(`Profiles List`)), loading: false});
+        console.log(`Stock Data:`);
+        console.log(stockList);
 
+        stockList.map((stock,index) => {
+            const profileURL = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/company/profile/${stock.symbol}`;
+            fetch(profileURL).then(newResponse => newResponse.json()).then(profileList => {
+                this.setState(previousState => ({
+                    profiles: [...previousState.profiles, profileList]
+                }));
+            })
+        })
+        this.setState({ stocks : stockList, loading: false});
+        console.log(this.state.profiles.splice(100));
     }
 
     render() {
 
         let profileArray = [...this.state.profiles] || JSON.parse(localStorage.getItem(`Profiles List`)) || [];
-        console.log(`Profile Data:`);
-        console.log(profileArray);
+        profileArray.splice(100);
 
         if (!this.state.profiles.length) {
             return <div>Didnt get Stocks</div>
