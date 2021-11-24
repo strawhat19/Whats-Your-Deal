@@ -1,3 +1,8 @@
+.stockBar.loaded {
+  -webkit-animation: fadeIn var(--transition), marquee 800s linear infinite;
+          animation: fadeIn var(--transition), marquee 800s linear infinite;
+}
+
 .stockBar {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8,23 +13,29 @@
           align-items: center;
   position: absolute;
   top: 50px;
-  -webkit-animation: marqueeMove 800s linear infinite;
-          animation: marqueeMove 800s linear infinite;
+  grid-gap: 2px;
+  -webkit-animation: marquee 800s linear infinite;
+          animation: marquee 800s linear infinite;
+  background: var(--main);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  border-bottom: 2px solid var(--main);
 }
 
-.stockBar .stockElement {
-  text-align: center;
-  width: 177px;
-  font-size: 0.8em;
-  color: white;
+.stockBar a {
+  width: 200px;
+  max-height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
-.stockBar .marqueeAnim {
-  -webkit-animation: marqueeMove 800s linear infinite;
-          animation: marqueeMove 800s linear infinite;
-}
-
-@-webkit-keyframes marqueeMove {
+@-webkit-keyframes marquee {
   0% {
     -webkit-transform: translate(0%);
             transform: translate(0%);
@@ -35,7 +46,7 @@
   }
 }
 
-@keyframes marqueeMove {
+@keyframes marquee {
   0% {
     -webkit-transform: translate(0%);
             transform: translate(0%);
@@ -107,7 +118,7 @@
 }
 
 .companyElement {
-  background: var(--silver);
+  background: white;
   height: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -119,6 +130,7 @@
       -ms-flex-align: center;
           align-items: center;
   border-bottom: 1px solid white;
+  width: 100%;
 }
 
 .outerMarquee a:hover {
@@ -156,11 +168,13 @@
   max-height: 30px;
   width: auto;
   margin-right: 10px;
+  max-width: 70px;
 }
 
 .companySymbol {
-  color: #b5b5b5;
+  color: black;
   font-size: 0.8em;
+  font-weight: 600;
 }
 
 .positive {
