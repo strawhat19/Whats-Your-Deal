@@ -3,159 +3,108 @@ import ReactDOM from 'react-dom';
 import "./sass/stockbar.css";
 import "./css/customCSS.css";
 
-function Stockbar(stockBar, stockElement, companyRow, companyImage, profilesArray, stockList) {
+export default class Stockbar extends React.Component {
 
-    // const title = React.createElement('h1', {}, 'My First React Code');
+    state = {
+        loading: true,
+        stocks: [],
+        profiles: JSON.parse(localStorage.getItem(`Profiles List`)) || []
+    }
 
-    const [isStockList, setIsStockList] = React.useState(true);
+    // Custom Stock Object
+    // class Stock {
+    //     constructor(name,symbol) {
+    //         this.name = name;
+    //         this.symbol = symbol;
+    //     }
 
-    const isntStockList = () => {
-        setIsStockList(false);
-     };  
-     const IsStockList = () => {
-        setIsStockList(true);
-     };
+    //     logInfo() {
+    //         Object.values(this).map(value => {
+    //             console.log(value);
+    //         })
+    //     }
+    // }
 
-    // window.addEventListener('DOMContentLoaded', (event) => {
-        stockBar = document.getElementById(`stockBar`);
-        profilesArray = JSON.parse(localStorage.getItem('Profiles List')) || [];
+    async componentDidMount(stockList, stockBar, stockElement, companyRow, companyImage, profileList) {
 
-        // fetch(`https://financialmodelingprep.com/api/v3/available-traded/list?apikey=7e60778244bbb11a3e59192e565ed625`)
-        // .then(response => {
-        //     return response.json();
-        // }).then(data => {
+        let profileArray = [];
 
-        //     data.splice(100);
-        //     stockList = [...new Set(data)];
-            stockList = JSON.parse(localStorage.getItem('Stock List')) || [];
-            console.log('Stock API Data Is:');
-            console.log(stockList);
-            // localStorage.setItem(`Stock List`, JSON.stringify(stockList));
-            profilesArray.shift();
-            console.log('Profile List Modded:');
-            console.log(profilesArray);
+        const stockAPIURL = `https://financialmodelingprep.com/api/v3/available-traded/list?limit=100&apikey=7e60778244bbb11a3e59192e565ed625`;
+        const response = await fetch(stockAPIURL);
+        stockList = await response.json();
+        stockList.splice(100);
 
-            stockList.map((company, index) => {
-                // let profileURL = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/company/profile/${company.symbol}`;
-                // fetch(profileURL)
-                //     .then((newResponse) => newResponse.json())
-                //     .then((profileData) => {
+        console.log(`Stock Data:`);
+        console.log(stockList);
+        this.setState({ stocks : stockList, loading: false});
+        this.setState({ profiles: JSON.parse(localStorage.getItem(`Profiles List`)), loading: false});
 
-                //     // Reinitializing Profile Array
-                //     profilesArray.push(profileData);
-                    profilesArray = JSON.parse(localStorage.getItem('Profiles List')) || [];
-                    // localStorage.setItem(`Profiles List`, JSON.stringify(profilesArray));
-                    profilesArray.map((companyProfile, index) => {
+        profileArray = JSON.parse(localStorage.getItem(`Profiles List`)) || [];
+        console.log(`Profile Data:`);
+        console.log(profileArray);
 
-                        // Begin Profiles Array // Search Results Function
-                        // let plus = ``;
-                        // let condition = ``;
-                        let symbol = companyProfile.symbol;
-                        let name = companyProfile.profile.companyName;
-                        // let image = companyProfile.profile.image;
-                        // let changes = companyProfile.profile.changes;
+    }
 
-                        // Filtering for Price Increase or Decrease
-                        // if (changes >= 0) {
-                        //     condition = `positive`;
-                        //     plus = `+`;
-                        // }  else {
-                        //     condition = `negative`;
-                        // }
-                
-                        // Creating Rows for Each Company
-                        companyRow = document.createElement(`div`);
-                        // companyRow = React.createElement(`div`, {}, '');
-                        // companyImage = document.createElement(`img`); // Creating Image for Each Company
-            
-                        // Setting the Attributes of the Company Image
-                        // companyImage.setAttribute(`src`, image);
-                        // companyImage.setAttribute(`class`, `companyIcon`);
-                        // companyImage.setAttribute(`height`, `100px`);
-                        // companyImage.setAttribute(`width`, `100px`);
+    render() {
 
-                        // Setting the Attributes of the Company Rows
-                        companyRow.setAttribute(`class`, `companyRow`);
+        if (!this.state.stocks.length) {
+            return <div>Didnt get Stocks</div>
+        }
+        if (this.state.loading) {
+            return <div>Loading...</div>
+        }
 
-                        // Creating a New Element to Contain Company Data
-                        let companyElement = document.createElement(`a`);
-                        companyElement.setAttribute(`class`,`çompanyElement`);
-                        companyElement.setAttribute(`ìd`, index + 1);
-                        companyElement.setAttribute(`href`,`./html/company.html?symbol=${symbol}`);
-                        companyElement.innerHTML = `
-                        <span class="companyName">${name}</span> 
-                        <span class="companySymbol">(${symbol})</span>
-                        <span class="companyChanges">Hello</span>`; // Injecting the Elements we Created into the Rows
-                        // <span class="companyChanges ${condition}">(${plus}${changes})</span>`; // Injecting the Elements we Created into the Rows
-                        // companyRow.prepend(companyImage);
-                        companyRow.append(companyElement);
+        const stockProfileBarRender = this.state.profiles.map((stockProfile,index) => {
 
-                        // Returning the Company Row
-                        return companyRow;
-                        // End Search Results Function
-                    });
+            let emptyString = `Nothing to Show`;
+            let stockProf = stockProfile.profile || emptyString;
+            let plus = ``;
+            let condition = ``;
+            let placeHolderImage = `https://raw.githubusercontent.com/strawhat19/Whats-Your-Deal/main/public/assets/Stock-Icon-Circle-Icon.png`;
+            let website = stockProf.website || emptyString;
+            let name = stockProf.companyName || emptyString;
+            let price = stockProf.price || emptyString;
+            let image = stockProf.image || placeHolderImage;
+            let address = stockProf.address || emptyString;
+            let ceo = stockProf.ceo || emptyString;
+            let changes = stockProf.changes || emptyString;
+            let changesPercentage = stockProf.changesPercentage || emptyString;
+            let country = stockProf.country || emptyString;
+            let currency = stockProf.currency || emptyString;
+            let industry = stockProf.industry || emptyString;
+            let description = stockProf.description || emptyString;
+            let exchange = stockProf.exchange || emptyString;
+            let fullTimeEmployees = stockProf.fullTimeEmployees || emptyString;
+            let sector = stockProf.sector || emptyString;
+            let city = stockProf.city || emptyString;
+            let state = stockProf.state || emptyString;
+            let zip = stockProf.zip || emptyString;
 
-                    // Abstracted this code so it only appends rows on full word input
-                    stockBar.append(companyRow);
+            // Filtering for Price Increase or Decrease
+            if (changes >= 0) {
+                condition = `positive`;
+                plus = `+`;
+            }  else {
+                condition = `negative`;
+            }
 
-                    // Image Fixing
-                    // const images = document.querySelectorAll(`img`);
-                    // images.forEach(image => {
-                    //     image.addEventListener(`error`,event => {
-                    //         event.target.src=`../img/Stock-Icon-Circle-Icon.svg`;
-                    //     })
-                    // })
+            return (
+            <div key={`profile${index}`}  id={`${stockProfile.symbol}`} className={`companyElement profile-${index} ${stockProfile.symbol}`}>
+                <a href={website} target="_blank" title="">
+                    <span className={`companySymbol ${stockProfile.symbol}`}>{stockProfile.symbol}</span>
+                    <span className={`companyChanges ${condition}`}>(${plus}${changes})</span>
+                    <div className="picture">
+                        <img className="companyIcon" src={image} alt="Company Image"></img>
+                    </div>
+                </a>
+            </div>
+            )
+        });
 
-                    // let searchTerm = 'Hello';
-
-                    // // Highlighting Searched Text on Company Names
-                    // const companyNames = document.querySelectorAll(`.companyName`);
-                    // companyNames.forEach(name => {
-                    // let filteredCharacters = searchTerm.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
-                    // let filter = new RegExp(`${filteredCharacters}`,`gi`);
-                    // name.innerHTML = name.textContent.replace(filter,match => `<mark>${match}</mark>`);
-                    // })
-
-                    // // Highlighting Searched Text on Company Symbols
-                    // const companySymbols = document.querySelectorAll(`.companySymbol`);
-                    // companySymbols.forEach(symbol => {
-                    // let filteredCharacters = searchTerm.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
-                    // let filter = new RegExp(`${filteredCharacters}`,`gi`);
-                    // symbol.innerHTML = symbol.textContent.replace(filter,match => `<mark>${match}</mark>`);
-                    // })
-
-                // }); // Inner Fetch
-
-                stockElement = document.createElement(`div`);
-                stockElement.setAttribute(`class`,`stockElement`);
-
-                // Add symbol with a price
-                let companyElement = document.createElement(`a`);
-                let companyImage = document.createElement(`img`); // Creating Image for Each Company
-
-                // Setting the Attributes of the Company Image
-                companyImage.setAttribute(`src`, company);
-                companyImage.setAttribute(`class`, `companyIcon`);
-                companyImage.setAttribute(`height`, `100px`);
-                companyImage.setAttribute(`width`, `100px`);
-                companyElement.setAttribute(`href`,`./html/company.html?symbol=${company.symbol}`);
-                companyElement.setAttribute(`class`,`companyElement ${company.symbol}`);
-                companyElement.setAttribute(`ìd`, index + 1);
-                stockElement.innerHTML = `${company.symbol} <span class="positive"> | (${company.price})</span>`;
-                companyElement.append(stockElement);
-                companyRow.append(companyElement);
-            });
-
-            // ReactDOM.render(
-            //     stockList,
-            //     document.getElementById('stockBarContainer')
-            //   );
-    // }); // Dom Content Loaded 
-    // }) // End Primary Fetch
-
-    return (
-        <div className="stockBar marquee" id="stockBar"></div>
-    );
+        return (
+            <div id="stockBar" className={`stockBar`}>
+                {stockProfileBarRender}
+            </div>
+        )
+    }
 }
- 
-export default Stockbar;
