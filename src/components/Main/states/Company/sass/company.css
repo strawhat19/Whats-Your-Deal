@@ -1,0 +1,162 @@
+:root {
+  --red: #de1c1c;
+}
+
+.companyDash {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: white;
+  width: 80%;
+  margin: 1em;
+  padding: 0.5em 2em 2em;
+  border-radius: 15px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-gap: 2em;
+  -webkit-box-shadow: -3px 5px 11px black;
+          box-shadow: -3px 5px 11px black;
+}
+
+.companyDash a {
+  color: black;
+}
+
+@media (max-width: 1285px) {
+  .companyDash {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.companyData {
+  width: 50%;
+}
+
+.companyImage {
+  max-height: 50px;
+}
+
+.companyTitleRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-gap: 1em;
+  padding: .5em 0;
+}
+
+.industry {
+  font-size: .8em;
+}
+
+.companyDescription {
+  font-size: .8em;
+  margin: 1em 0 0 0;
+  max-height: 230px;
+  overflow: auto;
+  position: relative;
+  padding: 0 1em 0 0;
+}
+
+.companyDescription span {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background: white;
+  width: 100% !important;
+  text-align: center;
+  padding: .5em 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  display: block;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+
+.companyDescription::-webkit-scrollbar {
+  width: 7px;
+}
+
+.companyDescription::-webkit-scrollbar-thumb {
+  width: 7px;
+  background: var(--red);
+  border-radius: 15px;
+}
+
+.companyChart {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  height: 100%;
+  grid-gap: 1em;
+  position: relative;
+}
+
+.companyChart .chartTitle {
+  font-size: .8em;
+  text-align: center;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.companyChart canvas {
+  background: white;
+  color: white;
+  z-index: 1;
+  -webkit-animation: fadeIn 3s ease-in-out;
+          animation: fadeIn 3s ease-in-out;
+}
+
+.companyChart .spinnerSVG {
+  stroke-dasharray: 5px;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  overflow: visible;
+  margin-left: 0em;
+  max-width: 75px;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+.companyChart .spinnerSVG path {
+  stroke: black;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/*# sourceMappingURL=company.css.map */

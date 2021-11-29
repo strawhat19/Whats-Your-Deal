@@ -65,6 +65,8 @@ export default class Stockbar extends React.Component {
 
     render() {
 
+        console.log(this.props.state);
+
         let STOCKS = this.state.stocksArray;
         STOCKS = [];
 
@@ -74,13 +76,14 @@ export default class Stockbar extends React.Component {
 
         const stockProfileBarRender = this.state.profiles.map((stockProfile,index) => {
 
-            let emptyString = `Nothing to Show`;
+            let stockBarLoading = `Stock Bar is Loading: `;
             let APIString = `API`;
             let placeHolderImage = `https://raw.githubusercontent.com/strawhat19/Whats-Your-Deal/main/public/assets/Stock-Icon-Circle-Icon.png`;
-            let stockProf = stockProfile.profile || emptyString;
+            let stockProf = stockProfile.profile || stockBarLoading;
+            let name = stockProf.companyName || stockBarLoading;
+            let emptyString = name || `Loading...`;
             let plus = ``;
             let condition = ``;
-            let name = stockProf.companyName || emptyString;
             let image = stockProf.image || placeHolderImage;
             let officialSymbol = stockProfile.symbol || APIString;
             let price = stockProf.price || emptyString;
@@ -104,7 +107,7 @@ export default class Stockbar extends React.Component {
             STOCKS.push(stockElement);
             console.log(`Stock Profiles:`);
             console.log(STOCKS);
-
+            
             // Filtering for Price Increase or Decrease
             if (changes >= 0) {
                 condition = `positive`;
@@ -112,9 +115,8 @@ export default class Stockbar extends React.Component {
             }  else {
                 condition = `negative`;
             }
-
+            
             $(`#stockBar`).addClass(`loaded`);
-            $(`.stockBar.loaded`).fadeIn(5000);
 
             return (
             <div key={`profile${index}`}  id={`${stockProfile.symbol}`} className={`companyElement profile-${index} ${stockProfile.symbol}`}>
