@@ -1,0 +1,124 @@
+:root {
+    --red: #de1c1c;
+}
+
+@mixin flexThis {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.companyDash {
+    display: flex;
+    background: white;
+    width: 80%;
+    margin: 1em;
+    padding: 0.5em 2em 2em;
+    border-radius: 15px;
+    align-items: center;
+    grid-gap: 2em;
+    box-shadow: -3px 5px 11px rgba(0, 0, 0, 59%);
+    a {
+        color: black;
+    }
+    @media (max-width: 1285px) {
+        flex-direction: column;
+    }
+}
+
+.companyData {
+    width: 50%;
+}
+
+.companyImage {
+    max-height: 50px;
+}
+
+.companyTitleRow {
+    display: flex;
+    align-items: center;
+    grid-gap: 1em;
+    padding: .5em 0;
+}
+
+.industry {
+    font-size: .8em;
+}
+
+.companyDescription {
+    font-size: .8em;
+    margin: 1em 0 0 0;
+    max-height: 230px;
+    overflow: auto;
+    position: relative;
+    padding: 0 1em 0 0;
+    span {
+        position: sticky;
+        top: 0;
+        background: rgba(255, 255, 255, 80%);
+        width: 100% !important;
+        text-align: center;
+        padding: .5em 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        display: block;
+        backdrop-filter: blur(5px);
+    }
+    &::-webkit-scrollbar {
+        width: 7px;
+    }
+    &::-webkit-scrollbar-thumb {
+        width: 7px;
+        background: var(--red);
+        border-radius: 15px;
+    }
+}
+
+.companyChart {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    grid-gap: 1em;
+    position: relative;
+    .chartTitle {
+        font-size: .8em;
+        text-align: center;
+        font-weight: 600;
+        font-style: italic;
+    }
+    canvas {
+        background: white;
+        color: white;
+        z-index: 1;
+        animation: fadeIn 3s ease-in-out;
+    }
+    .spinnerSVG {
+        stroke-dasharray: 5px;
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        overflow: visible;
+        margin-left: 0em;
+        max-width: 75px;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 0;
+      path {
+          stroke: black;
+      }
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    } 
+    100% {
+        opacity: 1;
+    }
+}

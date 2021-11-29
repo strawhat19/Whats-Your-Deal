@@ -65,6 +65,8 @@ export default class Stockbar extends React.Component {
 
     render() {
 
+        console.log(this.props.state);
+
         let STOCKS = this.state.stocksArray;
         STOCKS = [];
 
@@ -105,7 +107,7 @@ export default class Stockbar extends React.Component {
             STOCKS.push(stockElement);
             console.log(`Stock Profiles:`);
             console.log(STOCKS);
-
+            
             // Filtering for Price Increase or Decrease
             if (changes >= 0) {
                 condition = `positive`;
@@ -113,7 +115,7 @@ export default class Stockbar extends React.Component {
             }  else {
                 condition = `negative`;
             }
-
+            
             $(`#stockBar`).addClass(`loaded`);
 
             return (
