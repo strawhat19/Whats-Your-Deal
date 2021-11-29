@@ -25,10 +25,10 @@ export default class Company extends React.Component {
 
         // Filtering for Price Increase or Decrease
         if (changes >= 0) {
-        condition = `positive`;
-        plus = `+`;
+            condition = `positive`;
+            plus = `+`;
         }  else {
-        condition = `negative`;
+            condition = `negative`;
         }
 
         // Taking Destructured Objects and injecting them into the markdown
@@ -45,18 +45,18 @@ export default class Company extends React.Component {
         `;
 
         if (industry === ``) {
-        document.querySelector(`.industry`).innerHTML = `(${companySymbol})`;
+            document.querySelector(`.industry`).innerHTML = `(${companySymbol})`;
         }
 
         if (website === ``) {
-        document.querySelector(`.companyTitleRow a`).setAttribute(`href`,`../`);
+            document.querySelector(`.companyTitleRow a`).setAttribute(`href`,`../`);
         }
 
         // Image Fixing
         const images = document.querySelectorAll(`img`);
         images.forEach(image => {
             image.addEventListener(`error`,event => {
-            event.target.src=`../img/Stock-Icon-Circle-Icon.svg`;
+            event.target.src=`https://raw.githubusercontent.com/strawhat19/Whats-Your-Deal/main/public/assets/Stock-Icon-Circle-Icon.png`;
             })
         })
 
