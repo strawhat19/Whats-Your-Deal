@@ -6,6 +6,7 @@ import "./css/customCSS.css";
 
 export default class Stockbar extends React.Component {
     render() {
+        console.log(this.props.state);
         let plus = ``;
         let condition = ``;
         return (

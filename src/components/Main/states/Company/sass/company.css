@@ -34,6 +34,12 @@
 
 .companyData {
   width: 50%;
+  color: black;
+}
+
+.stockPrice {
+  text-align: left;
+  font-size: .7em;
 }
 
 .companyImage {
@@ -56,12 +62,14 @@
 }
 
 .companyDescription {
-  font-size: .8em;
-  margin: 1em 0 0 0;
+  font-size: .65em;
+  margin: 0.6em 0 0 0;
   max-height: 230px;
   overflow: auto;
   position: relative;
-  padding: 0 1em 0 0;
+  padding: 0em 1em 0 0;
+  text-align: left;
+  border-top: solid 5px var(--main);
 }
 
 .companyDescription span {
@@ -81,13 +89,13 @@
 }
 
 .companyDescription::-webkit-scrollbar {
-  width: 7px;
+  width: 5px;
 }
 
 .companyDescription::-webkit-scrollbar-thumb {
-  width: 7px;
+  width: 5px;
   background: var(--red);
-  border-radius: 15px;
+  border-radius: 0px;
 }
 
 .companyChart {

@@ -12,26 +12,36 @@ export default class App extends React.Component {
 
   state = {
     stocks: [],
+    histories: []
   }
 
   async componentDidMount(stockList) {
+      let histories = [];
       $(`#stockBar`).hide();
       const stockAPIURL = `https://financialmodelingprep.com/api/v3/available-traded/list?limit=100&apikey=7e60778244bbb11a3e59192e565ed625`;
       const response = await fetch(stockAPIURL);
       stockList = await response.json();
-      stockList.splice(100);
-      stockList.map((stock,index) => {
+      stockList.splice(35);
+      stockList.map((stock,index,history) => {
           let symbol = stock.symbol;
+          fetch(`https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/historical-price-full/${symbol}?serietype=line`)
+          .then(historyResponse => historyResponse.json()).then(history => {
+              history.historical.splice(15);
+              histories.push(history);
+              this.setState(previousState => ({
+                histories: [...previousState.histories, history]
+              }));
+          });
           const profileURL = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/company/profile/${symbol}`;
           fetch(profileURL).then(newResponse => newResponse.json()).then((profileList,index) => {
+            let plus = ``;
+            let condition = ``;
             let stockBarLoading = `Stock Bar is Loading: `;
             let APIString = `API`;
             let placeHolderImage = `https://raw.githubusercontent.com/strawhat19/Whats-Your-Deal/main/public/assets/Stock-Icon-Circle-Icon.png`;
             let stockProf = profileList.profile || stockBarLoading;
             let name = stockProf.companyName || stockBarLoading;
             let emptyString = name || `Loading...`;
-            let plus = ``;
-            let condition = ``;
             let image = stockProf.image || placeHolderImage;
             let officialSymbol = profileList.symbol || APIString;
             let price = stockProf.price || emptyString;
@@ -50,8 +60,10 @@ export default class App extends React.Component {
             let stateOfficial = stockProf.state || emptyString;
             let zip = stockProf.zip || emptyString;
             let address = stockProf.address || emptyString;
+            let last15 = this.state.histories.filter(history => history.symbol === officialSymbol);
+            console.log(last15);
     
-            let stockElement = new Stock(name,image,officialSymbol,price,website,description,ceo,employees,changesPercentage,currency,country,industry,exchange,sector,city,stateOfficial,zip,address);
+            let stockElement = new Stock(name,image,officialSymbol,last15,price,website,description,ceo,employees,changesPercentage,currency,country,industry,exchange,sector,city,stateOfficial,zip,address);
     
             // Filtering for Price Increase or Decrease
             if (changes >= 0) {
