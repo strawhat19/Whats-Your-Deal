@@ -99,10 +99,9 @@ export default class Company extends React.Component {
     }
 
     render() {
-
         return (
             <div className="company" id="company">
-                <a href="../"><h1 class="nasdaq">NASDAQ EXCHANGE</h1></a>
+                <a href="../"><h1 class="nasdaq">COMPANY DATA</h1></a>
                 <div class="companyDash" id="companyDash">
                     <div class="companyData"></div>
                     <div class="companyChart">
@@ -122,7 +121,7 @@ export default class Company extends React.Component {
                             labels: JSON.parse(localStorage.getItem(`Dates`)).reverse(),
                             datasets: [{
                                 label: `Company Growth`,
-                                backgroundColor: `#000000`,
+                                backgroundColor: `#de1c1c`,
                                 borderColor: `#de1c1c`,
                                 fill: true,
                                 pointRadius: 1,
