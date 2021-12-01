@@ -6,8 +6,7 @@ function Register(props) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [userStocks, setUserStocks] = useState(props.state.stocks);
-
-  console.log(userStocks);
+  const [userHistories, setUserHistories] = useState(props.state.histories);
 
   async function registerUser(event){
     event.preventDefault();
@@ -21,13 +20,13 @@ function Register(props) {
         name,
         email,
         password,
-        userStocks
+        userStocks,
+        userHistories
       }),
     })
     const data = await response.json()
     console.log(data);
   }
-
 
   return (
     <div>
@@ -49,6 +48,7 @@ function Register(props) {
           onChange={(e) => {
             setPassword(e.target.value)
             setUserStocks(props.state.stocks)
+            setUserHistories(props.state.histories)
           }}
           placeholder="Password" />
         <input type="submit" value="Register"/>

@@ -14,9 +14,14 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    userStocks: [
-      String
-    ],
+    userStocks: {
+      type: Array,
+      required: true,
+    },  
+    userHistories: {
+      type: Array,
+      required: true,
+    },
   },
   {
     collection: 'users'

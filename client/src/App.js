@@ -8,6 +8,18 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import $ from 'jquery';
 import Stock from './models/Stock';
 
+const filterHistories = (companySymbol) => {
+  let histories = JSON.parse(localStorage.getItem(`User Histories`));
+  if (histories.length == 15) {
+    let last15 = histories.filter(history => {
+      if (history.symbol === companySymbol) {
+        return history.historical;
+      }
+    });
+    return last15[0].historical;
+  }
+}
+
 export default class App extends React.Component {
 
   state = {
@@ -28,6 +40,7 @@ export default class App extends React.Component {
           .then(historyResponse => historyResponse.json()).then(history => {
               history.historical.splice(15);
               histories.push(history);
+              localStorage.setItem(`User Histories`, JSON.stringify(histories));
               this.setState(previousState => ({
                 histories: [...previousState.histories, history]
               }));
@@ -60,10 +73,8 @@ export default class App extends React.Component {
             let stateOfficial = stockProf.state || emptyString;
             let zip = stockProf.zip || emptyString;
             let address = stockProf.address || emptyString;
-            let last15 = this.state.histories.filter(history => history.symbol === officialSymbol);
-            console.log(last15);
     
-            let stockElement = new Stock(name,image,officialSymbol,last15,price,website,description,ceo,employees,changesPercentage,currency,country,industry,exchange,sector,city,stateOfficial,zip,address);
+            let stockElement = new Stock(name,image,officialSymbol,filterHistories(officialSymbol),price,website,description,ceo,employees,changesPercentage,currency,country,industry,exchange,sector,city,stateOfficial,zip,address);
     
             // Filtering for Price Increase or Decrease
             if (changes >= 0) {
