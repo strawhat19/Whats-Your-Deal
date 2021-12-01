@@ -52,6 +52,7 @@ function Header() {
                     <a href="https://strawhat19.github.io/Whats-Your-Deal/" class="nav-link piratechsLink" title="Github Repo" target="_blank"><i class="fas fa-share-alt-square"></i></a>
                     <a href="https://github.com/strawhat19/Whats-Your-Deal" class="nav-link githubLink" title="Github Repo" target="_blank"><i class="fab fa-github"></i></a>
                 </div>
+                
                 <div class="mobile-menu-option" id="mobile-menu-option">
                     <div id="menuToggle" onClick={openMobileMenu}>
                         <a id="openMenuToggler" class="openMenuToggler">
@@ -61,6 +62,11 @@ function Header() {
                         </a>
                     </div>
                     <ul class="desktop-menu-option mobile-Menu" id="desktopMenu">
+                        {/* <div class="nav-menu navigation LoginNRegister">
+                    <li class="nav-link Home LoginNRegister"><a href="Login" target="_blank" title="Login"> Login</a></li>
+                    <li class="nav-link Home LoginNRegister"><a href="Register" title="Register"> Register</a></li>
+                    </div> */}
+
                         <li class="nav-link About"><a href="#About">About <span class="slashes">//</span> <i class="fas fa-user-edit"></i></a></li>
                         <li class="nav-link resumeLink"><a href="#Resume">Resume <span class="slashes">//</span> <i class="fas fa-file"></i></a></li>
                         <li class="nav-link Projects"><a href="#Projects">Projects <span class="slashes">//</span> <i class="fas        fa-project-diagram"></i></a></li>
