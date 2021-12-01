@@ -15,15 +15,12 @@ app.post('/api/register', async(req, res) => {
     try{
         const salt = await bcrypt.genSalt(10);
         const password = await bcrypt.hash(req.body.password, salt);
-        const { name, email, userStocks} = req.body;
-        const user = new userData({ name, email, password, userStocks});
-        console.log(user);
+        const { name, email, userStocks, userHistories} = req.body;
+        const user = new userData({ name, email, password, userStocks, userHistories});
         const ret = await user.save();
-        console.log(ret);
         res.status(200).json(ret);
     } catch (err){
-        console.log(err)
-        res.json({status: 'Not Successfully'})
+        res.json({status: 'Not Successfully', err})
     }
 })
 
