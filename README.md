@@ -22,7 +22,7 @@ Practicing Asyncronous Fetching with Stocks API.
 git clone git@github.com:strawhat19/Whats-Your-Deal.git
 cd Whats-Your-Deal/
 npm install
-npm start
+npm run develop
 ```
 
 ## Usage
