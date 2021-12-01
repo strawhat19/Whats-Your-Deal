@@ -14,16 +14,7 @@ function Header() {
         mobileMenuOpen.toggleClass("open-mobile-menu");
         menuToggler.toggleClass("clicked");
 
-        // if (mobileMenuJS.classList.contains(`closed`)) {
-        //     mobileMenuOpen.show(500);
-        //     // mobileMenuOpen.toggleClass("open-mobile-menu");
-        //     // menuToggler.toggleClass("clicked");
-        // } else {
-        //     mobileMenuOpen.hide(500);
-        // }
-
         identifier = mobileMenuJS.classList[2];
-        // console.log(identifier);
 
         switch (identifier) {
             case `null`:
@@ -32,11 +23,6 @@ function Header() {
                 mobileMenuOpen.toggleClass(`closed`);
                 break;
             case `open-mobile-menu`:
-                // mobileMenuOpen.fadeIn(500);
-                // mobileMenuOpen.css({
-                //     "top": "-100px",
-                //     "opacity": "1"
-                //   });
                 break;
         }
     }
@@ -62,11 +48,8 @@ function Header() {
                         </a>
                     </div>
                     <ul class="desktop-menu-option mobile-Menu" id="desktopMenu">
-                        {/* <div class="nav-menu navigation LoginNRegister">
-                    <li class="nav-link Home LoginNRegister"><a href="Login" target="_blank" title="Login"> Login</a></li>
-                    <li class="nav-link Home LoginNRegister"><a href="Register" title="Register"> Register</a></li>
-                    </div> */}
-
+                        <li class="nav-link Home LoginNRegister"><a href="Login" title="Login">Login</a></li>
+                        <li class="nav-link Home LoginNRegister"><a href="Register" title="Register">Register</a></li>
                         <li class="nav-link About"><a href="#About">About <span class="slashes">//</span> <i class="fas fa-user-edit"></i></a></li>
                         <li class="nav-link resumeLink"><a href="#Resume">Resume <span class="slashes">//</span> <i class="fas fa-file"></i></a></li>
                         <li class="nav-link Projects"><a href="#Projects">Projects <span class="slashes">//</span> <i class="fas        fa-project-diagram"></i></a></li>
