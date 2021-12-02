@@ -88,6 +88,64 @@ nav li {
   }
 }
 
+#socialLinksMain a, #socialLinksContact a, #socialLinksFooter a {
+  color: white;
+  font-size: 20px;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  padding: 5px 6px 5px 9px !important;
+  border-radius: 100%;
+}
+
+.social-links a {
+  color: white;
+  font-size: 20px;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  padding: 5px 10px 4px 8px !important;
+  border-radius: 100%;
+}
+
+.registrationButtons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.registrationButtons a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-gap: 0.4em;
+  width: auto;
+  padding: 0 15px;
+  margin: 0 15px;
+  text-decoration: none;
+  color: white !important;
+  font-weight: 600;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-right: 1px solid white;
+  border-left: 1px solid white;
+  -webkit-transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+.registrationButtons a:hover {
+  padding: 15px;
+  border-color: var(--main);
+  background: var(--secondary);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
 @-webkit-keyframes fadeIn {
   0% {
     opacity: 0;
@@ -177,7 +235,8 @@ ul li.nav-link {
 }
 
 ul li.nav-link:hover {
-  background: var(--main);
+  background: rgba(222, 28, 28, 0.6);
+  cursor: pointer;
 }
 
 nav .Projects a:hover {
@@ -384,7 +443,9 @@ nav .Projects.active a:hover {
   z-index: -5;
   -webkit-transition: var(--transition);
   transition: var(--transition);
-  background: var(--secondary);
+  background: rgba(0, 0, 0, 0.75) !important;
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
   padding: 0;
   margin: 0.0189em 0 0 0;
   -webkit-animation: fadeIn var(--transition);
@@ -405,6 +466,45 @@ nav .Projects.active a:hover {
   display: block;
   margin: 0;
   z-index: -5;
+}
+
+.innerSocialLinks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 90%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+}
+
+.innerSocialLinks a {
+  width: 2% !important;
+}
+
+.mainNavLink {
+  color: white;
+  font-family: 'Montserrat';
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: auto;
+}
+
+.mainNavLink .aboutLink {
+  padding: 5px 9px !important;
 }
 
 /* Mobile Menu+ */
@@ -463,9 +563,6 @@ nav .Projects.active a:hover {
 }
 
 @media screen and (max-width: 1235px) {
-  #socialLinksMain {
-    display: none !important;
-  }
   .desktop-menu-option.open-mobile-menu {
     margin: 0.04em 0 0 0;
   }
@@ -489,13 +586,11 @@ nav .Projects.active a:hover {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    grid-column-gap: 15px;
-    grid-column-gap: 15px;
-    -webkit-column-gap: 15px;
-            column-gap: 15px;
+    grid-gap: 0em;
     padding-top: 15px;
     padding-bottom: 15px;
     border-bottom: 1px solid white;
+    width: 100%;
   }
 }
 
@@ -520,15 +615,6 @@ nav .Projects.active a:hover {
   }
 }
 
-.social-links a, #socialLinksMain a, #socialLinksContact a, #socialLinksFooter a {
-  color: white;
-  font-size: 20px;
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
-  padding: 5px 9px !important;
-  border-radius: 100%;
-}
-
 .social-with-text a {
   font-size: 20px;
   -webkit-transition: var(--transition);
@@ -545,7 +631,7 @@ nav .Projects.active a:hover {
 }
 
 .social-links .linkedInLink:hover {
-  padding: 5px 9px !important;
+  padding: 5px 9px 4px 8px !important;
   color: white;
   background: #0a66c2;
   font-size: 20px;
@@ -554,7 +640,7 @@ nav .Projects.active a:hover {
 }
 
 .social-links .piratechsLink:hover {
-  padding: 5px 9px !important;
+  padding: 5px 9px 4px 8px !important;
   color: white;
   background: #2b4261;
   font-size: 20px;
@@ -563,7 +649,7 @@ nav .Projects.active a:hover {
 }
 
 .social-links .githubLink:hover {
-  padding: 5px 9px !important;
+  padding: 5px 9px 4px 8px !important;
   color: #0d1117 !important;
   background: var(--secondary);
   font-size: 20px;
@@ -572,7 +658,7 @@ nav .Projects.active a:hover {
 }
 
 .social-links .instagramLink:hover {
-  padding: 5px 9px !important;
+  padding: 5px 9px 4px 8px !important;
   color: white;
   background: #88205b;
   font-size: 20px;
@@ -582,7 +668,7 @@ nav .Projects.active a:hover {
 }
 
 .social-links .emailLink:hover {
-  padding: 5px 9px !important;
+  padding: 5px 9px 4px 8px !important;
   background: white;
   font-size: 20px;
   -webkit-transition: var(--transition);

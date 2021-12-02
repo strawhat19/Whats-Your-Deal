@@ -19,7 +19,7 @@ export default class Main extends React.Component {
                 case `Login`:
                     return <Login state={this.props.state} />
                 default:
-                    return <div>Home Page</div>
+                    return <Homepage state={this.props.state} />
             }
         }
 
