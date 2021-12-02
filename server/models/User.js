@@ -16,21 +16,12 @@ const userSchema = new Schema(
     },
     userStocks: {
       type: Array,
-<<<<<<< HEAD
-      required: true
-    },
-    userHistories: {
-      type: Array,
-      required: true
-    }
-=======
       required: true,
     },  
     userHistories: {
       type: Array,
       required: true,
     },
->>>>>>> 8ffa71404f8077f087dce871f74cea934a025224
   },
   {
     collection: 'users'
