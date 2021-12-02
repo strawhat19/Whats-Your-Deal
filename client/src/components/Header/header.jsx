@@ -8,7 +8,7 @@ function Header() {
     
     const openMobileMenu = (identifier) =>  {
         let mobileMenuOpen = $("#desktopMenu");
-        let menuToggler = $("openMenuToggler");
+        let menuToggler = $("#openMenuToggler");
         let mobileMenuJS = document.getElementById(`desktopMenu`);
 
         mobileMenuOpen.toggleClass("open-mobile-menu");
@@ -30,15 +30,19 @@ function Header() {
     return (
         <header className="header">
             <nav class="nav-menu navigation" id="navigation">
-                <li class="nav-link Home"><a href="./" title="Home"><i class="fas fa-home"></i> What's <span class="slashes">//</span> Your Deal?!</a></li>
+                <li class="nav-link Home"><a href="./" title="Home"><i class="fas fa-home"></i> What's Your Deal?!</a></li>
                 <div class="social-links" id="socialLinksMain">
-                    <a href="https://strawhat19.github.io/Whats-Your-Deal/" class="nav-link instagramLink" title="Github Repo" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://strawhat19.github.io/Whats-Your-Deal/" class="nav-link linkedInLink" title="Github Repo" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="mailto:rahmed@piratechs.com" class="nav-link emailLink" title="Email"  target="_blank"><i class="fas fa-envelope"></i></a>
-                    <a href="https://strawhat19.github.io/Whats-Your-Deal/" class="nav-link piratechsLink" title="Github Repo" target="_blank"><i class="fas fa-share-alt-square"></i></a>
-                    <a href="https://github.com/strawhat19/Whats-Your-Deal" class="nav-link githubLink" title="Github Repo" target="_blank"><i class="fab fa-github"></i></a>
+                    <div className="mainNavLink">
+                        <a href="https://github.com/strawhat19/Whats-Your-Deal" class="nav-link githubLink" title="Github Repo" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                    <div className="mainNavLink">
+                        <a href="/about" class="nav-link aboutLink" title="About Us"><i class="fas fa-user-edit"></i></a>
+                    </div>
                 </div>
-                
+                <div className={`registrationButtons`}>
+                    <a href="Login" title="login"><i class="fas fa-sign-in-alt"></i> Login</a>
+                    <a href="Register" title="Register"><i class="fas fa-user-plus"></i> Register</a>
+                </div>
                 <div class="mobile-menu-option" id="mobile-menu-option">
                     <div id="menuToggle" onClick={openMobileMenu}>
                         <a id="openMenuToggler" class="openMenuToggler">
@@ -48,19 +52,11 @@ function Header() {
                         </a>
                     </div>
                     <ul class="desktop-menu-option mobile-Menu" id="desktopMenu">
-                        <li class="nav-link Home LoginNRegister"><a href="Login" title="Login">Login</a></li>
-                        <li class="nav-link Home LoginNRegister"><a href="Register" title="Register">Register</a></li>
-                        <li class="nav-link About"><a href="#About">About <span class="slashes">//</span> <i class="fas fa-user-edit"></i></a></li>
-                        <li class="nav-link resumeLink"><a href="#Resume">Resume <span class="slashes">//</span> <i class="fas fa-file"></i></a></li>
-                        <li class="nav-link Projects"><a href="#Projects">Projects <span class="slashes">//</span> <i class="fas        fa-project-diagram"></i></a></li>
-                        <li class="nav-link Contact"><a href="#Contact">Contact <span class="slashes">//</span> <i class="fas fa-paper-plane"></i></a></li>
-                        <div class="social-links" id="socialLinks">
-                            <a href="https://www.instagram.com/piratechsatl/" class="nav-link instagramLink" title="@Piratechsatl" target="_blank"><i class="fab fa-instagram"></i></a>
-                            <a href="https://www.linkedin.com/in/rakib-ahmed19/" class="nav-link linkedInLink" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
-                            <a href="mailto:rahmed@piratechs.com" class="nav-link emailLink" title="Email"  target="_blank"><i class="fas fa-envelope"></i></a>
-                            <a href="https://piratechs.com/" class="nav-link piratechsLink" title="Piratechs" target="_blank"><i class="fas fa-share-alt-square"></i></a>
-                            <a href="https://github.com/strawhat19" class="nav-link githubLink" title="Github" target="_blank"><i class="fab fa-github"></i></a>
-                        </div>
+                        <li class="nav-link About"><a href="/about"><i class="fas fa-user-edit"></i> About</a></li>
+                        <li class="nav-link Github"><a href="https://github.com/strawhat19/Whats-Your-Deal"><i class="fab fa-github"></i> Github</a></li>
+                        <li class="nav-link Home LoginNRegister"><a href="Login" title="Login"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                        <li class="nav-link Home LoginNRegister"><a href="Register" title="Register"><i class="fas fa-user-plus"></i> Register</a></li>
+                        <li class="nav-link Contact"><a href="/contact"><i class="fas fa-paper-plane"></i> Contact</a></li>
                     </ul>
                 </div>
             </nav>

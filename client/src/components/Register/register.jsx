@@ -7,7 +7,11 @@ function Register(props) {
   const [password, setPassword] = useState('')
   const [userStocks, setUserStocks] = useState(props.state.stocks);
   const [userHistories, setUserHistories] = useState(props.state.histories);
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 8ffa71404f8077f087dce871f74cea934a025224
   async function registerUser(event){
     event.preventDefault();
 
@@ -27,7 +31,6 @@ function Register(props) {
     const data = await response.json()
     console.log(data);
   }
-
 
   return (
     <div>

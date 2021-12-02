@@ -13,20 +13,21 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 50px;
+  padding: 0;
   flex-wrap: wrap;
-  font-family: Noto Sans JP;
   font-weight: 400 !important;
   font-size: 13px;
-  grid-gap: 10px;
+  grid-gap: 0px;
   z-index: 1;
   position: fixed;
   bottom: 0;
-  width: 95% !important;
+  width: 100% !important;
   border-top: 2px solid white;
-    @media (max-width: 992px) { // iPads
-      padding: 10px 30px;
-      width: 100% !important;
+    .innerFooter {
+      display: flex;
+      width: 95%;
+      justify-content: space-between;
+      margin: 0 auto;
     }
     a {
       color: white !important;
