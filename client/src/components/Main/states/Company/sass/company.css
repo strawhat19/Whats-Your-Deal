@@ -2,6 +2,63 @@
   --red: #de1c1c;
 }
 
+.companyDataHeader {
+  color: white !important;
+}
+
+.companyDataHeader span:not(.symbolOfComp) {
+  color: var(--main);
+}
+
+.companyDataHeader .symbolOfComp {
+  color: white !important;
+}
+
+.companyLoading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  grid-gap: 1em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.loader {
+  border: 16px solid #626262;
+  border-top: 16px solid var(--main);
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  -webkit-animation: spin 1s linear infinite;
+          animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
 .companyDash {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -9,7 +66,7 @@
   background: white;
   width: 80%;
   margin: 1em auto;
-  padding: 0.5em 2em 2em;
+  padding: 0.5em 2em .7em;
   border-radius: 15px;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -37,15 +94,6 @@
   color: black;
 }
 
-.stockPrice {
-  text-align: left;
-  font-size: .7em;
-}
-
-.companyImage {
-  max-height: 50px;
-}
-
 .companyTitleRow {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -57,35 +105,106 @@
   padding: .5em 0;
 }
 
+.companyTitleRow a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  grid-gap: 0em;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.companyTitleRow a .titleText {
+  font-size: .7em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: auto;
+  grid-gap: .3em;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: right;
+  color: black;
+  font-weight: 700;
+}
+
+.companyImage {
+  min-height: 50px;
+  max-height: 80px;
+  padding-right: 1em;
+  border-right: solid 5px var(--main);
+}
+
+.stockPrice {
+  text-align: left;
+  font-size: .7em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .industry {
   font-size: .8em;
 }
 
 .companyDescription {
   font-size: .65em;
+  font-weight: 500;
   margin: 0.6em 0 0 0;
   max-height: 230px;
   overflow: auto;
   position: relative;
-  padding: 0em 1em 0 0;
+  padding: 0em 1em 0 0em;
   text-align: left;
   border-top: solid 5px var(--main);
 }
 
-.companyDescription span {
+.companyDescription .desc {
+  font-size: .85em;
+  padding-left: 2em;
+  font-style: italic;
+}
+
+.companyDescription .innerStockData {
   position: -webkit-sticky;
   position: sticky;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   top: 0;
-  background: white;
+  background: rgba(255, 255, 255, 0.7);
   width: 100% !important;
-  text-align: center;
+  text-align: left;
   padding: .5em 0;
+  font-size: .85em;
   left: 0;
   right: 0;
   height: 100%;
-  display: block;
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
+  font-weight: 700;
 }
 
 .companyDescription::-webkit-scrollbar {
