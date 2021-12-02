@@ -8,12 +8,43 @@
     align-content: center;
 }
 
+.companyDataHeader {
+    color: white !important;
+    span:not(.symbolOfComp) {
+        color: var(--main);
+    }
+    .symbolOfComp {
+        color: white !important;
+    }
+}
+
+.companyLoading {
+    display: flex;
+    grid-gap: 1em;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader {
+    border: 16px solid #626262;
+    border-top: 16px solid var(--main);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
 .companyDash {
     display: flex;
     background: white;
     width: 80%;
     margin: 1em auto;
-    padding: 0.5em 2em 2em;
+    padding: 0.5em 2em .7em;
     border-radius: 15px;
     align-items: center;
     grid-gap: 2em;
@@ -31,21 +62,47 @@
     color: black;
 }
 
-.stockPrice {
-    text-align: left;
-    font-size: .7em;
-}
-
-.companyImage {
-    max-height: 50px;
-}
-
 .companyTitleRow {
     display: flex;
     align-items: center;
     grid-gap: 1em;
     padding: .5em 0;
+    a {
+        display: flex;
+        grid-gap: 0em;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        .titleText {
+            font-size: .7em;
+            display: flex;
+            flex-direction: column;
+            width: auto;
+            grid-gap: .3em;
+            justify-content: center;
+            text-align: right;
+            color: black;
+            font-weight: 700;
+        }
+    }
 }
+
+.companyImage {
+    max-height: 80px;
+    height: auto;
+    max-width: 300px;
+    padding-right: 1em;
+    border-right: solid 5px var(--main);
+}
+
+.stockPrice {
+    text-align: left;
+    font-size: .7em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 
 .industry {
     font-size: .8em;
@@ -53,25 +110,35 @@
 
 .companyDescription {
     font-size: .65em;
+    font-weight: 500;
     margin: 0.6em 0 0 0;
     max-height: 230px;
     overflow: auto;
     position: relative;
-    padding: 0em 1em 0 0;
+    padding: 0em 1em 0 0em;
     text-align: left;
     border-top: solid 5px var(--main);
-    span {
+    .desc {
+        font-size: .85em;
+        padding-left: 2em;
+        font-style: italic;
+    }
+    .innerStockData {
         position: sticky;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         top: 0;
-        background: rgba(255, 255, 255, 80%);
+        background: rgba(255, 255, 255, .7);
         width: 100% !important;
-        text-align: center;
+        text-align: left;
         padding: .5em 0;
+        font-size: .85em;
         left: 0;
         right: 0;
         height: 100%;
-        display: block;
         backdrop-filter: blur(5px);
+        font-weight: 700;
     }
     &::-webkit-scrollbar {
         width: 5px;

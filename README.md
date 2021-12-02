@@ -4,9 +4,9 @@
 
 Practicing Asyncronous Fetching with Stocks API.
 
-![Screenshot of Application](./public/assets/screenshot1cropt.jpg)
-![Screenshot of Application 2](https://raw.githubusercontent.com/strawhat19/Whats-Your-Deal/ricky/public/assets/screenshot2.JPG)
-![Screenshot of Application 3](https://raw.githubusercontent.com/strawhat19/Whats-Your-Deal/ricky/public/assets/screenshot.JPG)
+![Screenshot of Application](https://raw.githubusercontent.com/strawhat19/Whats-Your-Deal/main/client/public/assets/screenshot1cropt.jpg)
+![Screenshot of Application 2](https://raw.githubusercontent.com/strawhat19/Whats-Your-Deal/main/client/public/assets/screenshot2.JPG)
+![Screenshot of Application 3](https://raw.githubusercontent.com/strawhat19/Whats-Your-Deal/main/client/public/assets/screenshot.JPG)
 
 ## Table of Contents  
 * [Installation](#installation)  

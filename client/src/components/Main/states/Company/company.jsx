@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
+import $ from 'jquery';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -26,51 +27,13 @@ ChartJS.register(
 
 export default class Company extends React.Component {
 
-    async componentDidMount(companySymbol,profile,history) {   
+    async componentDidMount() {   
 
-        // Declaring Constants
-        const companyData = document.querySelector(`.companyData`);
-        companySymbol = this.props.state.companyClicked;
+        const main = $(`main`);
+        let companyLoading = $(`<div class="companyLoading"><div class="loader"></div> <h1>Company Profile is Loading...</h1></div>`);
+        main.prepend(companyLoading);
+        companyLoading.fadeIn(1000);
         
-
-        // Getting Profiles
-        const profileResponse = await fetch(`https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/company/profile/${companySymbol}`);
-
-        profile = await profileResponse.json();
-        let {profile: {price,image,industry,companyName:name,changes,description,website,changesPercentage:percent},symbol} = profile;
-
-        let plus = ``;
-        let condition = ``;
-
-        // Filtering for Price Increase or Decrease
-        if (changes >= 0) {
-            condition = `positive`;
-            plus = `+`;
-        }  else {
-            condition = `negative`;
-        }
-
-        // Taking Destructured Objects and injecting them into the markdown
-        companyData.innerHTML = `
-        <div class="companyTitleRow">
-            <img src="${image}" class="companyImage" alt="${companySymbol}">
-            <a href="${website}" target="_blank" title="${companySymbol}">
-                <span class="companyName">${name}</span>
-                <span class="industry">(${industry})</span>
-            </a>
-        </div>
-        <div class="stockPrice">Stock Price: $${price} <span class="companyChanges ${condition}">(${plus}${changes}%)</span></div>
-        <p class="companyDescription"><span>Description:</span> ${description}</p>
-        `;
-
-        if (industry === ``) {
-            document.querySelector(`.industry`).innerHTML = `(${companySymbol})`;
-        }
-
-        if (website === ``) {
-            document.querySelector(`.companyTitleRow a`).setAttribute(`href`,`../`);
-        }
-
         // Image Fixing
         const images = document.querySelectorAll(`img`);
         images.forEach(image => {
@@ -79,30 +42,71 @@ export default class Company extends React.Component {
             })
         })
 
-        // Getting History
-        const profileHistory = await fetch(`https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/historical-price-full/${companySymbol}?serietype=line`);
-        history = await profileHistory.json();
-        history.historical.splice(15);
-
-        let datesArray = [];
-        let pricesArray = [];
-
-        history.historical.forEach(date => {
-            let month = date.date.split(`-`)[1];
-            let day = date.date.split(`-`)[2];
-            let monthDay = month + ` -` + day;
-            datesArray.push(monthDay);
-            localStorage.setItem(`Dates`, JSON.stringify(datesArray));
-            pricesArray.push(date.close);
-            localStorage.setItem(`Prices`, JSON.stringify(pricesArray));
-        })
-
     }
 
     render() {
+        const companyContainer = $(`#company`);
+        companyContainer.hide();
+        const companyData = document.querySelector(`.companyData`);
+        let companySymbol = window.location.search.replace(`?symbol=`,``);
+
+        if (this.props.state.stocks.length > 14 && this.props.state.histories.length > 14) {
+            console.log(`App State:`);
+            console.log(this.props.state);
+
+            let companyStock = this.props.state.stocks.filter(stock => stock.symbol === companySymbol)[0];
+            let companyHistory = this.props.state.histories.filter(history => history.symbol === companySymbol)[0];
+
+            console.log(companyStock);
+            console.log(companyHistory);
+            
+            let {price,image,industry,name,changesPercentage,description,website,symbol,change,employees,ceo,sector,city,state} = companyStock;
+
+            let plus = ``;
+            let condition = ``;
+
+            // Filtering for Price Increase or Decrease
+            if (change >= 0) {
+                condition = `positive`;
+                plus = `+`;
+            }  else {
+                condition = `negative`;
+            }
+
+            companyData.innerHTML = `
+                <div class="companyTitleRow">
+                    <a href="${website}" target="_blank" title="${companySymbol}">
+                        <img src="${image}" class="companyImage" alt="${companySymbol}">
+                        <div class="titleText">
+                            <span class="companyName">${name}</span>
+                            <span class="industry">${industry}</span>
+                        </div>
+                    </a>
+                </div>
+                <p class="companyDescription"><span class="innerStockData">Stock Price: $${price} <span class="companyChanges ${condition}">Growth Percentage: ( ${plus}${change}% )</span></span> <span class="desc">${description}</span></p>
+            `;
+
+            let datesArray = [];
+            let pricesArray = [];
+
+            companyHistory.historical.forEach(date => {
+                let month = date.date.split(`-`)[1];
+                let day = date.date.split(`-`)[2];
+                let monthDay = month + ` -` + day;
+                datesArray.push(monthDay);
+                localStorage.setItem(`Dates`, JSON.stringify(datesArray));
+                pricesArray.push(date.close);
+                localStorage.setItem(`Prices`, JSON.stringify(pricesArray));
+            })
+
+            let companyLoading = $(`.companyLoading`);
+            companyLoading.fadeOut(1000);
+            companyContainer.fadeIn(1000);
+        }
+      
         return (
             <div className="company" id="company">
-                <a href="../"><h1 class="nasdaq">COMPANY DATA</h1></a>
+                <a className={`companyDataHeader backToHomeLink`} href="../"><h1 class="nasdaq">COMPANY DATA <span>(<span class="symbolOfComp">{companySymbol}</span>)</span></h1></a>
                 <div class="companyDash" id="companyDash">
                     <div class="companyData"></div>
                     <div class="companyChart">
