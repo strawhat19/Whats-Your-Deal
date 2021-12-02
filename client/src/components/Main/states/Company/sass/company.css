@@ -139,8 +139,9 @@
 }
 
 .companyImage {
-  min-height: 50px;
   max-height: 80px;
+  height: auto;
+  max-width: 300px;
   padding-right: 1em;
   border-right: solid 5px var(--main);
 }

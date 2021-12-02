@@ -2,9 +2,10 @@ import { useState } from 'react'
 
 function Register(props) {
   
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [profile, setProfile] = useState(``);
+  const [password, setPassword] = useState('');
   const [userStocks, setUserStocks] = useState(props.state.stocks);
   const [userHistories, setUserHistories] = useState(props.state.histories);
   
@@ -24,8 +25,16 @@ function Register(props) {
         userHistories
       }),
     })
-    const data = await response.json()
-    console.log(data);
+    const data = await response.json();
+    let user = {
+      name,
+      email,
+      password,
+      userStocks,
+      userHistories
+    }
+    setProfile(user);
+    console.log(profile);
   }
 
   return (
