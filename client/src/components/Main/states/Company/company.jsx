@@ -26,11 +26,12 @@ ChartJS.register(
 
 export default class Company extends React.Component {
 
-    async componentDidMount(companySymbol,copmany,profile,history) {   
+    async componentDidMount(companySymbol,profile,history) {   
 
         // Declaring Constants
         const companyData = document.querySelector(`.companyData`);
-        companySymbol = `AAPL`;
+        companySymbol = this.props.state.companyClicked;
+        
 
         // Getting Profiles
         const profileResponse = await fetch(`https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/company/profile/${companySymbol}`);
