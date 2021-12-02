@@ -24,7 +24,8 @@ export default class App extends React.Component {
 
   state = {
     stocks: [],
-    histories: []
+    histories: [],
+    companyClicked:''
   }
 
   async componentDidMount(stockList) {
@@ -92,9 +93,16 @@ export default class App extends React.Component {
 
           })
       })
+      
   }
 
   render() {
+    let companies = document.querySelectorAll('.companyElement');
+    companies.forEach((company,index) => {
+        company.addEventListener("click", e => {
+            this.setState({ companyClicked: company.id})
+        })
+    });
 
     if (!this.state.stocks.length) {
         return <div>Didnt get Stocks</div>

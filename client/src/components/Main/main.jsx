@@ -12,12 +12,15 @@ export default class Main extends React.Component {
 
         const switchMain = (route) => {
             route = window.location.pathname.replace(`/`,``);
+            
 
             switch(route) {
                 case `Register`:
                     return <Register state={this.props.state} />;
                 case `Login`:
-                    return <Login state={this.props.state} />
+                    return <Login state={this.props.state} />;
+                case `company`:
+                    return <Company state={this.props.state} />;
                 default:
                     return <Homepage state={this.props.state} />
             }

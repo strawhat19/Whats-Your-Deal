@@ -9,6 +9,7 @@ export default class Stockbar extends React.Component {
         // console.log(this.props.state);
         let plus = ``;
         let condition = ``;
+    
         return (
             <div id="stockBar" className={`stockBar`}>
                 {this.props.state.stocks.map((stock,index) => {
@@ -22,7 +23,7 @@ export default class Stockbar extends React.Component {
 
                     return (
                         <div key={`profile${index}`}  id={`${stock.symbol}`} className={`companyElement profile-${index} ${stock.symbol}`}>
-                            <a href={stock.website} target="_blank" title={stock.name}>
+                            <a href={`./company?symbol=${stock.symbol}`} target="_blank" title={stock.name}>
                                 <img className="companyIcon" src={stock.image} alt="Company Image"></img>
                                 <span className={`companySymbol ${stock.symbol}`}>{stock.symbol}</span>
                                 <span className={`companyChanges ${condition}`}>{plus} {stock.changesP.split(``).length > 7 ? stock.changesP.split(``).reverse().splice(4).reverse() : stock.changesP}</span>
