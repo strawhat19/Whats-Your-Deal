@@ -8,7 +8,7 @@ function Header() {
     
     const openMobileMenu = (identifier) =>  {
         let mobileMenuOpen = $("#desktopMenu");
-        let menuToggler = $("openMenuToggler");
+        let menuToggler = $("#openMenuToggler");
         let mobileMenuJS = document.getElementById(`desktopMenu`);
 
         mobileMenuOpen.toggleClass("open-mobile-menu");
