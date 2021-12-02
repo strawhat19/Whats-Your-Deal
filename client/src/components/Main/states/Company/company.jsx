@@ -30,11 +30,17 @@ export default class Company extends React.Component {
 
         // Declaring Constants
         const companyData = document.querySelector(`.companyData`);
-        companySymbol = this.props.state.companyClicked;
-        
+        companySymbol = window.location.search.replace(`?symbol=`,``);
+        let companyStock = this.props.state.stocks.filter(stock => stock.symbol === companySymbol);
+        let companyHistory = this.props.state.histories.filter(history => history.symbol === companySymbol);
 
+        console.log(companyStock[0]);
+        console.log(companyHistory[0]);
+        
         // Getting Profiles
         const profileResponse = await fetch(`https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/company/profile/${companySymbol}`);
+
+        // let {price,image,industry,name,changesP,description,website,symbol} = companyStock[0];
 
         profile = await profileResponse.json();
         let {profile: {price,image,industry,companyName:name,changes,description,website,changesPercentage:percent},symbol} = profile;

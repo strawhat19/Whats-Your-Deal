@@ -1,6 +1,6 @@
 // Custom Stock Object
 export default class Stock {
-    constructor(name,image,symbol,history,price,website,description,ceo,employees,changesP,currency,country,industry,exchange,sector,city,state,zip,address,extra) {
+    constructor(name,image,symbol,history,price,website,description,ceo,employees,change,changesPercentage,currency,country,industry,exchange,sector,city,state,zip,address,extra) {
         this.name = name;
         this.image = image;
         this.symbol = symbol;
@@ -10,7 +10,8 @@ export default class Stock {
         this.description = description;
         this.ceo = ceo;
         this.employees = employees;
-        this.changesP = changesP;
+        this.change = change;
+        this.changesPercentage = changesPercentage;
         this.currency = currency;
         this.country = country;
         this.industry = industry;
