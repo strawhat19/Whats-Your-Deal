@@ -5,6 +5,7 @@ import Company from './states/Company/company';
 import Homepage from './states/Homepage/homepage';
 import Login from '../Login/login';
 import Register from '../Register/register';
+import Dashboard from '../Dashboard/dashboard';
 
 export default class Main extends React.Component {
     render(state) {
@@ -21,8 +22,11 @@ export default class Main extends React.Component {
                     return <Login state={this.props.state} />;
                 case `company`:
                     return <Company state={this.props.state} />;
+                case `dashboard`:
+                    return <Dashboard state={this.props.state} />;
                 default:
                     return <Homepage state={this.props.state} />
+                
             }
         }
 
