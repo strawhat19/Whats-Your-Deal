@@ -38,6 +38,9 @@ function Header() {
                     <div className="mainNavLink">
                         <a href="/about" class="nav-link aboutLink" title="About Us"><i class="fas fa-user-edit"></i></a>
                     </div>
+                    <div className="mainNavLink">
+                        <a href="/dashboard" class="nav-link dashboardLink" title="Dashboard"><i class="fas fa-house-user"></i></a>
+                    </div>
                 </div>
                 <div className={`registrationButtons`}>
                     <a href="Login" title="login"><i class="fas fa-sign-in-alt"></i> Login</a>
