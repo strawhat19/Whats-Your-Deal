@@ -23,20 +23,31 @@ app.post('/api/register', async(req, res) => {
     }
 })
 
-app.post('/api/login', async (req, res) => {
-    const userFound = await userData.findOne({
-        email: req.body.email,
-        password: req.body.password,
+app.post('/api/login', (req, res) => {
+
+    const {email, password} =req.body;
+    
+    userData.findOne(
+        {email:email},(err,user) =>{
+        if(user){
+
+            const isPasswordValid = bcrypt.compare(
+                	password,
+                	user.password
+            )
+
+            if(isPasswordValid){
+                res.send({message:"login successful",user:user})
+            }else{
+                res.send({message:"wrong credentials"})
+            }
+        }else{
+            res.send({message:"Not Register"})
+        }
     })
-    if (!userFound) {
-        return { status: 'error', error: 'Invalid login' }
-    }
-    if (userFound.password) {
-        return res.json({ status: 'ok', userFound: true })
-    } else {
-        return res.json({ status: 'error', userFound: false })
-    }
 })
+
+
 
 db.once('open', () => {
     app.listen(PORT, () => {

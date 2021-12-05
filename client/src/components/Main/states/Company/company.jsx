@@ -89,7 +89,7 @@ export default class Company extends React.Component {
             let datesArray = [];
             let pricesArray = [];
 
-            companyHistory.historical.forEach(date => {
+            this.props.state.histories.filter(history => history.symbol === companySymbol)[0].historical.forEach(date => {
                 let month = date.date.split(`-`)[1];
                 let day = date.date.split(`-`)[2];
                 let monthDay = month + ` -` + day;
@@ -131,7 +131,7 @@ export default class Company extends React.Component {
                                 fill: true,
                                 pointRadius: 1,
                                 responsive: true,
-                                data: JSON.parse(localStorage.getItem(`Prices`)).reverse()
+                                data: JSON.parse(localStorage.getItem(`Prices`)).reverse() || this.props.state.histories.filter(history => history.symbol === companySymbol)[0].historical
                             }]
                         }} />
                     </div>
