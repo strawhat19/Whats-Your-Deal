@@ -10,6 +10,8 @@ const PORT = 8080;
 app.use(cors())
 app.use(express.json())
 
+// app.use(express.static(`../client`));
+
 app.post('/api/register', async(req, res) => {
     try{
         const salt = await bcrypt.genSalt(10);

@@ -25,8 +25,7 @@ export default class Main extends React.Component {
                 case `dashboard`:
                     return <Dashboard state={this.props.state} />;
                 default:
-                    return <Homepage state={this.props.state} />
-                
+                    return <Homepage state={this.props.state} />; 
             }
         }
 

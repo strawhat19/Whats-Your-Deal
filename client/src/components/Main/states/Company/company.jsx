@@ -27,6 +27,11 @@ ChartJS.register(
 
 export default class Company extends React.Component {
 
+    state = {
+        dates: [],
+        prices: []
+    }
+
     async componentDidMount() {   
 
         const main = $(`main`);
