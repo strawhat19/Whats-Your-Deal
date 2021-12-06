@@ -1,0 +1,11 @@
+.dashboard {
+    width: 80%;
+}
+
+.stockLink {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    /* border-bottom: 3px solid var(--main); */
+    justify-content: space-between;
+}

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
 function Login() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   async function loginUser(event){
     event.preventDefault();
@@ -19,6 +19,10 @@ function Login() {
     })
     const data = await response.json()
     console.log(data);
+    if (data) {
+      localStorage.setItem(`Current User`, JSON.stringify(data));
+      // window.location.href = `/dashboard`;
+    }
   }
 
 
