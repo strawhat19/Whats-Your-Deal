@@ -1,6 +1,5 @@
 main {
   background-color: black;
-  min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -15,7 +14,8 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(10px + 1vmin);
   color: white;
+  padding-top: 5em;
 }
 /*# sourceMappingURL=main.css.map */

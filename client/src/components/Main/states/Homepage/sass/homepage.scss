@@ -1,0 +1,47 @@
+.appLogoHeader {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    grid-gap: 1em !important;
+}
+
+.react-Slidy {
+    width: 80% !important;
+    min-height: 500px !important;
+    div {
+        font-size: 1em !important;
+        ul {
+            li {
+                display: inline-block !important;
+                position: relative !important;
+                white-space: pre-wrap !important;
+                vertical-align: middle !important;
+                width: 100% !important;
+            }
+        }
+    }
+}
+
+.sliderElem {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    grid-gap: 1em !important;
+}
+
+.sliderLeft {
+    width: 100% !important;
+}
+
+.sliderRight {
+    width: 100% !important;
+}
+
+#stockAnimation {
+    width: 80% !important;
+    margin: 0 auto !important;
+}
+
+.react-Slidy-arrow {
+    margin: auto -3em !important;
+}

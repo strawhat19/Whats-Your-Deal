@@ -7,6 +7,9 @@ import Footer from './components/Footer/footer';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import $ from 'jquery';
 import Stock from './models/Stock';
+import userContext from './contexts/loginContext';
+
+const userData = JSON.parse(localStorage.getItem(`Current User`));
 
 export default class App extends React.Component {
 
@@ -102,10 +105,12 @@ export default class App extends React.Component {
 
     return (
       <div className="App">
-        <Header />
-        <Stockbar state={this.state} />
-        <Main state={this.state} />
-        <Footer />
+        <userContext.Provider value={userData}>
+          <Header />
+          <Stockbar state={this.state} />
+          <Main state={this.state} />
+          <Footer />
+        </userContext.Provider>
       </div>
     );  
   }
