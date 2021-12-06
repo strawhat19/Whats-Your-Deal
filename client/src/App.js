@@ -15,7 +15,8 @@ export default class App extends React.Component {
 
   state = {
     stocks: [],
-    histories: []
+    histories: [],
+    user: ``
   }
 
   async componentDidMount(stockList) {
