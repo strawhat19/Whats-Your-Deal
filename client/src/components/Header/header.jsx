@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Link } from 'react-router-dom';
 import $ from 'jquery';
 import "./sass/header.css";
 import "./css/customCSS.css";
+import userContext from '../../contexts/loginContext';
 
 function Header() {
+
+    const user = useContext(userContext);
     
     const openMobileMenu = (identifier) =>  {
         let mobileMenuOpen = $("#desktopMenu");
@@ -42,7 +45,7 @@ function Header() {
                         <a href="/dashboard" class="nav-link dashboardLink" title="Dashboard"><i class="fas fa-house-user"></i></a>
                     </div>
                     <div className="mainNavLink">
-                        - {`No User Found` || JSON.parse(localStorage.getItem(`Current User`)).user.name}
+                        - Welcome, {JSON.stringify(user.user.name)}
                     </div>
                 </div>
                 <div className={`registrationButtons`}>
