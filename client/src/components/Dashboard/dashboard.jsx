@@ -8,9 +8,17 @@ export default class Dashboard extends React.Component {
         let condition = ``;
         return (
             <div className="dashboard">
-                {JSON.parse(localStorage.getItem(`Current User`)).user.name}'s Stocks:
+                <div className={`dashboardTitleRow`}>
+                    <div className="dashboardTitleInnerRow">
+                        <div className={`userNameColumn titleField`}>{JSON.parse(localStorage.getItem(`Current User`)).user.name}'s Stocks:</div>
+                        <div className={`userStockColumn titleField`}>Stock</div>
+                        <div className={`stockSymbolColumn titleField`}>Symbol</div>
+                        <div className={`stockPriceColumn titleField`}>Price</div>
+                    </div>
+                </div>
                 {JSON.parse(localStorage.getItem(`Current User`)).user.userStocks.map((stock,index) => {
-                     if (stock.changesPercentage >= 0) {
+                    
+                    if (stock.changesPercentage >= 0) {
                         condition = `positive`;
                         plus = `+`;
                     }  else {
