@@ -5,6 +5,13 @@ import "./sass/stockbar.css";
 import "./css/customCSS.css";
 
 export default class Stockbar extends React.Component {
+
+    async componentDidMount() {
+        // Gets rid of Placeholder Element
+        let stockBarPH = $(`#API`);
+        if (stockBarPH) stockBarPH.remove();
+    }
+
     render() {
         // console.log(this.props.state);
         let plus = ``;

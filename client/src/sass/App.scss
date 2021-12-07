@@ -4,6 +4,14 @@
 /* Caveat */
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap');
 
+:root {
+  --main: #de1c1c;
+  --silver: #c5c5c5; // Silver
+  --secondary: #3c3c3c;
+  --transition: 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  --bg: black;
+}
+
 a {
   color: var(--main) !important;
   font-family: 'Montserrat';
@@ -26,7 +34,7 @@ a {
 }
 
 .App-header {
-  background-color: black;
+  background-color: var(--secondary);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -50,16 +58,9 @@ a {
   }
 }
 
-:root {
-  --main: #de1c1c;
-  --silver: #c5c5c5; // Silver
-  --secondary: black;
-  --transition: 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-}
-
 ::placeholder {
   font-family: 'Montserrat';
-  color: black;
+  color: var(--secondary);
   letter-spacing: 1.8;
 }
 

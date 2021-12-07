@@ -30,6 +30,41 @@ function Header() {
         }
     }
 
+    const logoutUser = () => {
+        localStorage.removeItem(`Current User`);
+        window.location.href = "/";
+    }
+
+    const renderLogin = () => {
+        if (user) {
+            return <a class="logoutButton" onClick={logoutUser} title="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        } else {
+            return (
+            <>
+                <a href="Login" title="login"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <a href="Register" title="Register"><i class="fas fa-user-plus"></i> Register</a>
+            </>
+            )
+        }
+    }
+
+    const renderUsername = () => {
+        if (user) {
+            return (
+                <>
+                <div className="mainNavLink">
+                    <a href="/dashboard" class="nav-link dashboardLink" title="Dashboard"><i class="fas fa-house-user"></i></a>
+                </div>
+                <div className="mainNavLink">
+                    - Welcome, {user.user.name}
+                </div>
+                </>
+            )
+        } else {
+            return <div className="mainNavLink">- Welcome, Please Log in or Register to customize stock</div>;
+        }
+    }
+
     return (
         <header className="header">
             <nav class="nav-menu navigation" id="navigation">
@@ -41,16 +76,10 @@ function Header() {
                     <div className="mainNavLink">
                         <a href="/about" class="nav-link aboutLink" title="About Us"><i class="fas fa-user-edit"></i></a>
                     </div>
-                    <div className="mainNavLink">
-                        <a href="/dashboard" class="nav-link dashboardLink" title="Dashboard"><i class="fas fa-house-user"></i></a>
-                    </div>
-                    <div className="mainNavLink">
-                        - Welcome, {JSON.stringify(user.user.name)}
-                    </div>
+                    {renderUsername()}
                 </div>
                 <div className={`registrationButtons`}>
-                    <a href="Login" title="login"><i class="fas fa-sign-in-alt"></i> Login</a>
-                    <a href="Register" title="Register"><i class="fas fa-user-plus"></i> Register</a>
+                    {renderLogin()}
                 </div>
                 <div class="mobile-menu-option" id="mobile-menu-option">
                     <div id="menuToggle" onClick={openMobileMenu}>
