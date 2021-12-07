@@ -53,6 +53,12 @@ nav {
     }
 }
 
+.logoutButton {
+    &:hover {
+        cursor: pointer;
+    }
+}
+
 #socialLinksMain a, #socialLinksContact a, #socialLinksFooter a {
     color: white;
     font-size: 20px;

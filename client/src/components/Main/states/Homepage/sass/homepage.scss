@@ -6,8 +6,8 @@
 }
 
 .react-Slidy {
-    width: 80% !important;
-    min-height: 500px !important;
+    width: 60% !important;
+    min-height: 355px !important;
     div {
         font-size: 1em !important;
         ul {
@@ -44,4 +44,10 @@
 
 .react-Slidy-arrow {
     margin: auto -3em !important;
+}
+
+#stockAnimation3 svg path {
+    fill: var(--main);
+    stroke: white;
+    stroke-width: 7px;
 }

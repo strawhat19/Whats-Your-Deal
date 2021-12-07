@@ -56,14 +56,14 @@ export default class Company extends React.Component {
         let companySymbol = window.location.search.replace(`?symbol=`,``);
 
         if (this.props.state.stocks.length > 14 && this.props.state.histories.length > 14) {
-            console.log(`App State:`);
-            console.log(this.props.state);
+            // console.log(`App State:`);
+            // console.log(this.props.state);
 
             let companyStock = this.props.state.stocks.filter(stock => stock.symbol === companySymbol)[0];
             let companyHistory = this.props.state.histories.filter(history => history.symbol === companySymbol)[0];
 
-            console.log(companyStock);
-            console.log(companyHistory);
+            // console.log(companyStock);
+            // console.log(companyHistory);
             
             let {price,image,industry,name,changesPercentage,description,website,symbol,change,employees,ceo,sector,city,state} = companyStock;
 
@@ -99,10 +99,20 @@ export default class Company extends React.Component {
                 let day = date.date.split(`-`)[2];
                 let monthDay = month + ` -` + day;
                 datesArray.push(monthDay);
+                // this.setState(previousState => ({
+                //     dates: [...previousState.dates, monthDay]
+                // }));
                 localStorage.setItem(`Dates`, JSON.stringify(datesArray));
                 pricesArray.push(date.close);
+                // this.setState(previousState => ({
+                //     prices: [...previousState.prices, date.close]
+                // }));
                 localStorage.setItem(`Prices`, JSON.stringify(pricesArray));
             })
+
+            // this.setState({ dates: datesArray })
+            // this.setState({ prices: pricesArray })
+            // console.log(this.state);
 
             let companyLoading = $(`.companyLoading`);
             companyLoading.fadeOut(1000);

@@ -5,7 +5,8 @@ export default function AccessReal() {
     React.useEffect(() => {
         lottie.loadAnimation({
             container: document.querySelector("#stockAnimation2"),
-            animationData: stockAnimation2
+            animationData: stockAnimation2,
+            loop: false
         });
         }, []);
 

@@ -22,7 +22,7 @@ function Login() {
     console.log(data);
     if (data) {
       localStorage.setItem(`Current User`, JSON.stringify(data));
-      // window.location.href = `/dashboard`;
+      window.location.href = `/dashboard`;
     }
   }
 

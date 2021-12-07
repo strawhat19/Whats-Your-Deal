@@ -12,4 +12,3 @@ app.post(`/api/userStocks/${symbol}:edit`, async (req, res) => {
         return res.json({ status: 'ok', userFound: true, user: userFound })
     }
 })
-
