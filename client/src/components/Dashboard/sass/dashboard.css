@@ -17,8 +17,43 @@
       flex-wrap: wrap;
 }
 
+@media (max-width: 992px) {
+  .dashboard {
+    width: 85%;
+  }
+}
+
+.dashboardTitleRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  background: var(--main);
+  padding: 0.5em 0;
+  position: static;
+  top: 0;
+}
+
+.dashboardTitleInnerRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.titleField {
+  width: 100%;
+}
+
 .stockLink {
-  width: 60%;
+  width: 90%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

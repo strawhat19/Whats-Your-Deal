@@ -10,6 +10,15 @@
   --bg: black;
 }
 
+body {
+  margin: 0;
+  font-family: 'Montserrat' !important;
+  background: var(--secondary) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
 a {
   color: var(--main) !important;
   font-family: 'Montserrat';
@@ -101,15 +110,6 @@ a {
   font-family: 'Montserrat';
   color: var(--secondary);
   letter-spacing: 1.8;
-}
-
-body {
-  margin: 0;
-  font-family: 'Montserrat' !important;
-  background: var(--secondary) !important;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
 }
 
 body, #root, .App, header {
