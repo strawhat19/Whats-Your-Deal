@@ -14,6 +14,7 @@ import {
 import { Line } from 'react-chartjs-2';
 import "./sass/company.css";
 import "./css/customCSS.css";
+import userContext from '../../../../contexts/loginContext';
 
 ChartJS.register(
     CategoryScale,
@@ -32,7 +33,9 @@ export default class Company extends React.Component {
         prices: []
     }
 
-    async componentDidMount() {   
+    async componentDidMount() {
+
+        // const user = useContext(userContext);
 
         const main = $(`main`);
         let companyLoading = $(`<div class="companyLoading"><div class="loader"></div> <h1>Company Profile is Loading...</h1></div>`);
@@ -54,6 +57,33 @@ export default class Company extends React.Component {
         companyContainer.hide();
         const companyData = document.querySelector(`.companyData`);
         let companySymbol = window.location.search.replace(`?symbol=`,``);
+
+        const user = JSON.parse(localStorage.getItem(`Current User`)) || null;
+
+        const deleteStock = () => {
+            // Nothing Yet
+        }
+
+        const saveStock = () => {
+            // Nothing Yet
+        }
+
+        const renderSaveDelete = () => {
+            if (user) {
+                return (
+                    <div className={`saveDelete`}>
+                        <span className={`saveBtn`}><i title={`Save Stock`} onClick={saveStock} class="fas fa-save"></i> Save Stock</span>
+                        <span className={`deleteBtn`}><i title={`Delete Stock`} onClick={deleteStock} class="fas fa-trash"></i> Delete Stock</span>
+                    </div>
+                )
+            } else {
+                return (
+                    <div className={`saveDelete`}>
+                        Log In or Sign Up to Save
+                    </div>
+                )
+            }
+        }
 
         if (this.props.state.stocks.length > 14 && this.props.state.histories.length > 14) {
             // console.log(`App State:`);
@@ -151,6 +181,7 @@ export default class Company extends React.Component {
                         }} />
                     </div>
                 </div>
+                {renderSaveDelete()}
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
             </div>
         );

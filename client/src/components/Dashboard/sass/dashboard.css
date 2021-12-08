@@ -18,6 +18,10 @@
   overflow-x: hidden;
   overflow-y: auto;
   max-height: 60vh;
+  border-radius: 15px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  background: white;
 }
 
 @media (max-width: 992px) {
@@ -37,6 +41,7 @@
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  margin-bottom: .5em;
 }
 
 .dashboardTitleInnerRow {
@@ -88,9 +93,12 @@
 
 .deleteButton i {
   color: var(--main);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 .deleteButton i:hover {
   cursor: pointer;
+  color: black;
 }
 /*# sourceMappingURL=dashboard.css.map */
