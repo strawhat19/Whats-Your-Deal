@@ -35,6 +35,7 @@ function Register(props) {
     }
     setProfile(user);
     console.log(profile);
+    window.location.href = `/Login`;
   }
 
   return (
