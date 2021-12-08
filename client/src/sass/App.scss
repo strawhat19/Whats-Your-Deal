@@ -21,6 +21,17 @@ body {
   overflow-x: hidden;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: black;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 5px;
+  background: var(--red);
+  border-radius: 0px;
+}
+
 a {
   color: var(--main) !important;
   font-family: 'Montserrat';

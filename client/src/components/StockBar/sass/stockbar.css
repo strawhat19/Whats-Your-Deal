@@ -120,7 +120,7 @@
 
 .companyElement {
   background: white;
-  height: 40px;
+  min-height: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

@@ -150,6 +150,12 @@ nav li {
   transition: var(--transition);
 }
 
+@media (max-width: 992px) {
+  .registrationButtons {
+    display: none;
+  }
+}
+
 @-webkit-keyframes fadeIn {
   0% {
     opacity: 0;
@@ -277,6 +283,15 @@ nav .Projects.active a:hover {
 
 .mobile-menu-option {
   padding-right: 15px;
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .mobile-menu-option {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
 }
 
 .mobile-menu {
