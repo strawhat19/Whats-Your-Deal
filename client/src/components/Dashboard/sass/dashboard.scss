@@ -8,6 +8,10 @@
     overflow-x: hidden;
     overflow-y: auto;
     max-height: 60vh;
+    border-radius: 15px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background: white;
     @media (max-width: 992px) {
         width: 85%;
         max-height: 410px;
@@ -21,6 +25,7 @@
     padding: 0.5em 0;
     position: sticky;
     top: 0;
+    margin-bottom: .5em;
 }
 
 .dashboardTitleInnerRow {
@@ -61,8 +66,10 @@
 .deleteButton {
     i {
         color: var(--main);
+        transition: var(--transition);
         &:hover {
             cursor: pointer;
+            color: black;
         }
     }
 }

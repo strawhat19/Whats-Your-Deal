@@ -44,7 +44,7 @@
     background: white;
     width: 80%;
     margin: 1em auto;
-    padding: 0.5em 2em .7em;
+    padding: 0.5em 2em 1.5em;
     border-radius: 15px;
     align-items: center;
     grid-gap: 2em;
@@ -60,6 +60,9 @@
 .companyData {
     width: 50%;
     color: black;
+    @media (max-width: 1235px) {
+        width: 100%;
+    }
 }
 
 .companyTitleRow {
@@ -158,6 +161,9 @@
     height: 100%;
     grid-gap: 1em;
     position: relative;
+    @media (max-width: 1235px) {
+        width: 100%;
+    }
     .chartTitle {
         font-size: .8em;
         text-align: center;
@@ -195,5 +201,36 @@
     } 
     100% {
         opacity: 1;
+    }
+}
+
+.saveDelete {
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 5em;
+    margin: 3em auto 0;
+    font-family: 'montserrat' !important;
+    span {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-gap: 1em;
+        border-radius: 15px;
+        padding: 1em;
+        font-size: .8em;
+        transition: var(--transition);
+        &:hover {
+            cursor: pointer;
+            background: black;
+        }
+    }
+    .saveBtn {
+        background: green;
+    }
+    .deleteBtn {
+        background: var(--main);
     }
 }
