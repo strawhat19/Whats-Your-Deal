@@ -101,6 +101,9 @@ nav {
             transition: var(--transition);
         }
     }
+    @media (max-width: 992px) {
+        display: none;
+    }
 }
 
 @keyframes fadeIn {
@@ -195,9 +198,12 @@ nav .Projects.active a:hover {
     display: none !important;
 }
 
-
 .mobile-menu-option {
     padding-right: 15px;
+    display: none;
+    @media (max-width: 992px) {
+        display: flex;
+    }
 }
 
 .mobile-menu {

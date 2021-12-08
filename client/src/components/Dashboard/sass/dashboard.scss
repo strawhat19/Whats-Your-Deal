@@ -1,12 +1,16 @@
 .dashboard {
-    width: 30%;
+    width: 60%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 60vh;
     @media (max-width: 992px) {
         width: 85%;
+        max-height: 410px;
     }
 }
 
@@ -15,7 +19,7 @@
     width: 100%;
     background: var(--main);
     padding: 0.5em 0;
-    position: static;
+    position: sticky;
     top: 0;
 }
 
@@ -29,6 +33,9 @@
 
 .titleField {
     width: 100%;
+    font-size: .9em;
+    font-weight: 700;
+    text-align: center;
 }
 
 .stockLink {
@@ -36,4 +43,26 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.companyIndex {
+    color: black;
+    font-weight: 700;
+}
+
+.companySymbol {
+    font-weight: 700;
+}
+
+.companyChanges {
+    font-weight: 700;
+}
+
+.deleteButton {
+    i {
+        color: var(--main);
+        &:hover {
+            cursor: pointer;
+        }
+    }
 }
